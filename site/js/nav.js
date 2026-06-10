@@ -12,7 +12,7 @@
   var P = depth > 0 ? '../'.repeat(depth) : '';   // ルートへの相対プレフィックス
 
   /* ---- サイト構造定義 ---- */
-  var VERSION = 'v0.1.0';
+  var VERSION = 'v0.1.1';
   var JOBS = [
     { key: 'job-material',   href: 'jobs/material.html',   emoji: '🧱', label: '材料屋' },
     { key: 'job-farmer',     href: 'jobs/farmer.html',     emoji: '🍞', label: '農家' },

@@ -20,6 +20,29 @@
     <p>ルール改定の履歴です。新しい版が出るたびに、ここへ追記していきます。</p>
   </section>
 
+  <!-- v0.1.1 -->
+  <section class="section" id="v011">
+    <div class="section__head">
+      <span class="num">v0.1.1</span>
+      <h2><span class="ico">🛠️</span>サイト改善</h2>
+    </div>
+    <div class="section__body">
+      <p style="color:var(--mc-text-dim);">2026-06-10</p>
+      <div class="callout callout--info">
+        <span class="callout-ico">ℹ️</span>
+        <div>ルール本文（v0.1.0）の内容は変更していません。サイトの見やすさと公開まわりを改善した更新です。</div>
+      </div>
+      <h4>改善内容</h4>
+      <ul>
+        <li>章構成を学習順の<strong>3部構成</strong>に再編（① 国のシステム → ② 各職業 → ③ まとめ）</li>
+        <li>1ページ構成から<strong>マルチページ構成</strong>へ分割（職業ごとの相場ページを新設）</li>
+        <li>ヘッダーに<strong>ドロップダウン付きグローバルナビ</strong>、各ページに目次サイドナビを追加</li>
+        <li>共通ナビを <code>js/nav.js</code> で一元管理（バージョン・メニューを1か所で更新可能に）</li>
+        <li>Cloudflare Pages 公開用に<strong>ベーシック認証</strong>を追加（<code>site/functions/_middleware.js</code>）</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- v0.1.0 -->
   <section class="section" id="v010">
     <div class="section__head">
