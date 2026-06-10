@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国のシステム｜マイクラ経済ワールド</title>
+<link rel="icon" href="assets/icons/emerald.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="system" data-depth="0">
+<div id="app">
+    <section class="hero hero--page">
+      <div class="hero-icons">
+        <i class="mc mc-xl" style="background-image:url(assets/icons/emerald_block.png)"></i>
+        <i class="mc mc-xl" style="background-image:url(assets/icons/emerald.png)"></i>
+        <i class="mc mc-xl" style="background-image:url(assets/icons/redstone.png)"></i>
+        <i class="mc mc-xl" style="background-image:url(assets/icons/anvil.png)"></i>
+      </div>
+      <div class="hero-kicker">PART 1</div>
+      <h1><span class="hero-emoji">🏛️</span>国のシステム</h1>
+      <p>このワールドの土台となる、通貨・政府・公共サービス・税の仕組みです。まずここを把握しましょう。</p>
+    </section>
+    <!-- 1. 基本方針 -->
+    <section class="section" id="sec1">
+      <div class="section__head"><span class="num">01</span><h2><span class="ico">📜</span>基本方針</h2></div>
+      <div class="section__body">
+        <p>このワールドでは、プレイヤー同士の取引・職業ロールプレイ・政府クエスト・公共設備を通して、小さな経済圏を作ることを目的とします。</p>
+        <p>完全な自由経済ではなく、政府がある程度管理する<strong>「ゆるい公共経済」</strong>として運用します。政府はプレイヤーの仕事を奪う存在ではありません。</p>
+        <h3>政府の役割</h3>
+        <ul>
+          <li>生活に必要な最低限の物資を保証する</li>
+          <li>公共物を管理する</li>
+          <li>通貨量を調整する</li>
+          <li>クエストを発行する</li>
+          <li>高額サービスでエメラルドを回収する</li>
+          <li>装置や大型設備を管理する</li>
+          <li>プレイヤー同士の経済が回るように調整する</li>
+          <li>プレイヤーの面倒な部分をある程度削減する</li>
+        </ul>
+      </div>
+    </section>
+    <!-- 2. 通貨 -->
+    <section class="section" id="sec2">
+      <div class="section__head"><span class="num">02</span><h2><span class="ico">💚</span>通貨</h2></div>
+      <div class="section__body">
+        <p>ワールド内通貨は <strong><i class="mc" style="background-image:url(assets/icons/emerald.png)"></i> エメラルドのみ</strong> とします。</p>
+        <div class="callout callout--info">
+          <i class="mc callout-ico" style="background-image:url(assets/icons/diamond.png)"></i>
+          <div>ダイヤは通貨として扱いません。装備・道具・建築・取引用の高級素材として扱います。</div>
+        </div>
+        <p>ただし、政府がダイヤ装備を販売する際の計算上は、以下の換算で価格を決めます。</p>
+        <blockquote>ダイヤ1個 = 10エメラルド</blockquote>
+      </div>
+    </section>
+    <!-- 3. 禁止されるエメラルド入手方法 -->
+    <section class="section" id="sec3">
+      <div class="section__head"><span class="num">03</span><h2><span class="ico">🚫</span>禁止されるエメラルド入手方法</h2></div>
+      <div class="section__body">
+        <div class="callout callout--warn">
+          <span class="callout-ico">🚫</span>
+          <div>以下の方法でエメラルドを入手することは禁止します。</div>
+        </div>
+        <ul>
+          <li>司書以外の村人交易でエメラルドを稼ぐこと</li>
+          <li>農民・矢師・石工・聖職者などを使ったエメラルド量産</li>
+          <li>村人交易で得たエメラルドを通貨として流通させること</li>
+          <li>トラップや交易所を使って通貨を大量生成すること</li>
+        </ul>
+        <p>村人交易は、原則として <strong>司書とのエンチャント本取引のみ許可</strong> とします。</p>
+      </div>
+    </section>
+    <!-- 4. 初期支給 -->
+    <section class="section" id="sec4">
+      <div class="section__head"><span class="num">04</span><h2><span class="ico">🎁</span>初期支給</h2></div>
+      <div class="section__body">
+        <p>各プレイヤーには、初期値として以下を支給します。</p>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/emerald.png)"></i>エメラルド 64個</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/baked_potato.png)"></i>ベイクドポテト 64個</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/iron_chestplate.png)"></i>最低限の初期装備</span>
+        </div>
+        <div class="callout callout--ok">
+          <span class="callout-ico">✅</span>
+          <div>現在所持している装備は、そのまま使用して構いません。</div>
+        </div>
+      </div>
+    </section>
+    <!-- 7. 政府が提供するもの -->
+    <section class="section" id="sec7">
+      <div class="section__head"><span class="num">05</span><h2><span class="ico">🏛️</span>政府が提供するもの</h2></div>
+      <div class="section__body">
+        <div class="callout callout--warn">
+          <span class="callout-ico">⚠️</span>
+          <div>政府は何でも販売する店ではありません。扱うものは<strong>生活インフラ・公共物・標準装備・高額サービス</strong>に限定します。</div>
+        </div>
+
+        <h3>7.1 政府が提供する基本資材</h3>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/oak_log.png)"></i>原木</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/cobblestone.png)"></i>丸石</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/stone.png)"></i>石</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/stone_bricks.png)"></i>石レンガ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/glass.png)"></i>ガラス</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/sand.png)"></i>砂</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/dirt.png)"></i>土</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/iron_ingot.png)"></i>鉄</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/redstone.png)"></i>レッドストーン</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/coal.png)"></i>石炭</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/charcoal.png)"></i>木炭</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/redstone_torch.png)"></i>松明</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/chest.png)"></i>チェスト</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/crafting_table.png)"></i>作業台</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/furnace.png)"></i>かまど</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/ladder.png)"></i>はしご</span>
+        </div>
+        <p>村の維持・公共建築・初心者支援・緊急時の補給を目的とした物資です。少量の個人利用は可能ですが、大量に使う場合は相談・申告してください。不足時は政府が採取クエストを発行します。</p>
+
+        <h3>7.2 政府が提供する基本装備</h3>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/stone_pickaxe.png)"></i>石の道具一式</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/iron_pickaxe.png)"></i>鉄の道具一式</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/iron_chestplate.png)"></i>鉄防具</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/shield.png)"></i>盾</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bow.png)"></i>弓</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/arrow.png)"></i>矢</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bucket.png)"></i>バケツ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/shears.png)"></i>ハサミ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/fishing_rod.png)"></i>釣竿</span>
+        </div>
+        <p>作業や冒険を始めるための最低限の装備です。紛失・死亡後の復帰支援にも使用できます。必要以上に大量に持ち出すことは禁止します。</p>
+
+        <h3>7.3 政府が販売する高級装備・有料サービス</h3>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/diamond_pickaxe.png)"></i>ダイヤ道具</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/diamond_chestplate.png)"></i>ダイヤ防具</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>エンチャント済み装備・本</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/enchanting_table.png)"></i>エンチャント代行</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/anvil.png)"></i>修繕代行・金床利用</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/name_tag.png)"></i>名付けサービス</span>
+        </div>
+        <div class="callout callout--info">
+          <i class="mc callout-ico" style="background-image:url(assets/icons/emerald.png)"></i>
+          <div>これらは政府がエメラルドを回収するための重要な仕組みです。価格は経済状況に応じて変更される場合があります。</div>
+        </div>
+
+        <h3>7.4 政府が管理する公共物</h3>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/iron_ingot.png)"></i>鉄</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/redstone.png)"></i>レッドストーン</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/hopper.png)"></i>ホッパー</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/rail.png)"></i>レール</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/piston.png)"></i>ピストン</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/sticky_piston.png)"></i>粘着ピストン</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/observer.png)"></i>オブザーバー</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/dispenser.png)"></i>ディスペンサー</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/dropper.png)"></i>ドロッパー</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/repeater.png)"></i>リピーター</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/comparator.png)"></i>コンパレーター</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/redstone_lamp.png)"></i>レッドストーンランプ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/minecart.png)"></i>トロッコ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/anvil.png)"></i>金床</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/enchanting_table.png)"></i>エンチャント台</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bone_meal.png)"></i>骨粉</span>
+        </div>
+        <p>公共施設・装置・村の利便性向上のために使うものです。個人用途で大量に使う場合は、事前に相談してください。</p>
+
+        <h3>7.5 政府が常備しないもの</h3>
+        <p>以下は原則として政府では常備しません。必要な場合は、材料屋・農家・冒険家・建築家などに依頼してください。</p>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/glass.png)"></i>色付きガラス</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/white_wool.png)"></i>色付き羊毛</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/white_concrete.png)"></i>コンクリート</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/end_stone.png)"></i>エンド素材</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/nether_wart.png)"></i>ネザー素材</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/cooked_beef.png)"></i>大量の食料</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/honey_bottle.png)"></i>ポーション</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/wolf_spawn_egg.png)"></i>ペット・馬</span>
+        </div>
+      </div>
+    </section>
+    <!-- 8. 苗木・骨粉 -->
+    <section class="section" id="sec8">
+      <div class="section__head"><span class="num">06</span><h2><span class="ico">🌱</span>苗木・骨粉・植物素材の扱い</h2></div>
+      <div class="section__body">
+        <h3>8.1 苗木</h3>
+        <p>基本的な木材供給を守るため、一部の苗木を政府の公共物として管理します。</p>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/oak_sapling.png)"></i>オーク</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/birch_sapling.png)"></i>シラカバ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/spruce_sapling.png)"></i>トウヒ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/cherry_sapling.png)"></i>サクラ</span>
+        </div>
+        <p>木材不足を防ぐための公共資源です。伐採後はできるだけ植え直してください。大量・建築用途は材料屋または農家に依頼してください。</p>
+
+        <h3>8.3 骨粉</h3>
+        <p><i class="mc" style="background-image:url(assets/icons/bone_meal.png)"></i> 骨粉は政府の公共物として管理します。農家や材料屋は政府から購入して生産に使用できます。</p>
+        <div class="callout callout--warn">
+          <span class="callout-ico">🚫</span>
+          <div>骨粉を使って作物・木材・花などを増やして販売するのは可能ですが、<strong>骨粉そのものの転売は禁止</strong>します。</div>
+        </div>
+        <h4>骨粉の政府販売価格</h4>
+        <div class="table-wrap"><table>
+          <thead><tr><th>品目</th><th>数量</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/bone_meal.png)"></i>骨粉</td><td class="num">16個</td><td class="price">1エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/bone_meal.png)"></i>骨粉</td><td class="num">1スタック</td><td class="price">4エメラルド</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>8.4 ベイクドポテト</h3>
+        <div class="callout callout--ok">
+          <i class="mc callout-ico" style="background-image:url(assets/icons/baked_potato.png)"></i>
+          <div>政府が提供する食料は、原則として<strong>ベイクドポテトのみ</strong>。食料不足や死亡後の復帰を防ぐ最低限の支援です。焼き肉・パン・金のニンジンなどは農家やプレイヤー商店から購入してください。</div>
+        </div>
+      </div>
+    </section>
+    <!-- 9. 国庫 -->
+    <section class="section" id="sec9">
+      <div class="section__head"><span class="num">07</span><h2><span class="ico">🏦</span>国庫</h2></div>
+      <div class="section__body">
+        <p>村の中央に国庫を設置します。<strong>国庫の物資は、全員の共有資産</strong>です。</p>
+        <h4>主な用途</h4>
+        <ul>
+          <li>公共施設の建築 / 道路整備 / 村の安全確保</li>
+          <li>初心者支援 / 災害復旧 / イベント準備</li>
+          <li>政府依頼の報酬 / 公共装置の材料 / 共有設備の維持</li>
+        </ul>
+        <div class="callout callout--warn">
+          <span class="callout-ico">🚫</span>
+          <div>国庫の物資を個人の利益や個人建築のために大量に使うことは禁止します。高価・大量の素材を使う場合は事前に共有してください。</div>
+        </div>
+      </div>
+    </section>
+    <!-- 10. 政府クエスト -->
+    <section class="section" id="sec10">
+      <div class="section__head"><span class="num">08</span><h2><span class="ico">📋</span>政府クエスト</h2></div>
+      <div class="section__body">
+        <p>政府クエストは、公共物の補充や村の整備のために発行されます。<strong>プレイヤーの仕事を作るための制度</strong>です。常に物資を買い取るのではなく、必要な時に必要な分だけ依頼を出します。</p>
+        <h4>依頼に書く内容</h4>
+        <div class="tags">
+          <span class="tag">📝 依頼内容</span>
+          <span class="tag">📦 必要な成果物</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/emerald.png)"></i>報酬</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/clock.png)"></i>納期</span>
+          <span class="tag">👤 担当者</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/chest.png)"></i>納品場所</span>
+        </div>
+      </div>
+    </section>
+    <!-- 13. 基本物資価格 -->
+    <section class="section" id="sec13">
+      <div class="section__head"><span class="num">09</span><h2><span class="ico">🪵</span>政府提供・基本物資価格</h2></div>
+      <div class="section__body">
+        <p>政府の基本物資は、最低限の生活・復帰・公共作業用です。</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>品目</th><th>数量</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/baked_potato.png)"></i>ベイクドポテト</td><td class="num">1スタック</td><td class="price">無料 / 1</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/redstone_torch.png)"></i>松明</td><td class="num">1スタック</td><td class="price">1エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/crafting_table.png)"></i>作業台</td><td class="num">1個</td><td class="price">無料 / 1</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/furnace.png)"></i>かまど</td><td class="num">1個</td><td class="price">無料 / 1</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/chest.png)"></i>チェスト</td><td class="num">2個</td><td class="price">1エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/oak_planks.png)"></i>ベッド</td><td class="num">1個</td><td class="price">2エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/oak_planks.png)"></i>ボート</td><td class="num">1個</td><td class="price">1エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/bucket.png)"></i>バケツ</td><td class="num">1個</td><td class="price">2エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/shears.png)"></i>ハサミ</td><td class="num">1個</td><td class="price">1エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/bone_meal.png)"></i>骨粉</td><td class="num">16個</td><td class="price">1エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/bone_meal.png)"></i>骨粉</td><td class="num">1スタック</td><td class="price">4エメラルド</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+    <!-- 14. 基本装備価格 -->
+    <section class="section" id="sec14">
+      <div class="section__head"><span class="num">10</span><h2><span class="ico">⚔️</span>政府基本装備価格</h2></div>
+      <div class="section__body">
+        <p>復帰支援や作業開始用の価格です。</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>装備</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/stone_pickaxe.png)"></i>石のツルハシ</td><td class="price">無料 / 1</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/stone_axe.png)"></i>石の斧</td><td class="price">無料 / 1</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/stone_shovel.png)"></i>石のシャベル</td><td class="price">無料 / 1</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/stone_sword.png)"></i>石の剣</td><td class="price">無料 / 1</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_pickaxe.png)"></i>鉄のツルハシ</td><td class="price">3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_axe.png)"></i>鉄の斧</td><td class="price">3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_shovel.png)"></i>鉄のシャベル</td><td class="price">2エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_sword.png)"></i>鉄の剣</td><td class="price">3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/shield.png)"></i>盾</td><td class="price">2エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/bow.png)"></i>弓</td><td class="price">3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/arrow.png)"></i>矢64本</td><td class="price">3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_helmet.png)"></i>鉄ヘルメット</td><td class="price">4エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_chestplate.png)"></i>鉄チェストプレート</td><td class="price">6エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_leggings.png)"></i>鉄レギンス</td><td class="price">5エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_boots.png)"></i>鉄ブーツ</td><td class="price">3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_chestplate.png)"></i>鉄防具一式</td><td class="price">16エメラルド</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+    <!-- 15. ダイヤ装備価格 -->
+    <section class="section" id="sec15">
+      <div class="section__head"><span class="num">11</span><h2><span class="ico">💎</span>ダイヤ装備・エンチャント済み装備の価格計算</h2></div>
+      <div class="section__body">
+        <blockquote>完成品価格 = 装備本体価格 + エンチャント追加料金</blockquote>
+        <p>ダイヤは通貨ではありませんが、販売価格の計算上は <strong>ダイヤ1個 = 10エメラルド</strong> で計算します。</p>
+
+        <h3>15.1 ダイヤ装備の本体価格</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>アイテム</th><th>必要ダイヤ</th><th>本体価格</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_shovel.png)"></i>ダイヤのシャベル</td><td class="num">1個</td><td class="price">10エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_sword.png)"></i>ダイヤの剣</td><td class="num">2個</td><td class="price">20エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_axe.png)"></i>ダイヤの斧</td><td class="num">3個</td><td class="price">30エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_pickaxe.png)"></i>ダイヤのツルハシ</td><td class="num">3個</td><td class="price">30エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_hoe.png)"></i>ダイヤのクワ</td><td class="num">2個</td><td class="price">20エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_helmet.png)"></i>ダイヤヘルメット</td><td class="num">5個</td><td class="price">50エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_chestplate.png)"></i>ダイヤチェストプレート</td><td class="num">8個</td><td class="price">80エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_leggings.png)"></i>ダイヤレギンス</td><td class="num">7個</td><td class="price">70エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_boots.png)"></i>ダイヤブーツ</td><td class="num">4個</td><td class="price">40エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_chestplate.png)"></i>ダイヤ防具一式</td><td class="num">24個</td><td class="price">240エメラルド</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>15.2 エンチャント追加料金</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>エンチャント</th><th>区分</th><th>追加料金</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>修繕</td><td>生活系</td><td class="price">+12</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>幸運3</td><td>高級</td><td class="price">+36</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>効率強化5</td><td>高級</td><td class="price">+32</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>耐久力3</td><td>高級</td><td class="price">+32</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>ダメージ増加5</td><td>高級</td><td class="price">+32</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>射撃ダメージ増加5</td><td>高級</td><td class="price">+32</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>ダメージ軽減4</td><td>高級</td><td class="price">+24</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>アンデッド特効5</td><td>高級</td><td class="price">+24</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>シルクタッチ</td><td>中級</td><td class="price">+24</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>落下耐性4</td><td>中級</td><td class="price">+20</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>ドロップ増加3</td><td>中級</td><td class="price">+20</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>火属性2</td><td>通常</td><td class="price">+12</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>水中呼吸</td><td>通常</td><td class="price">+12</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>水中採掘</td><td>通常</td><td class="price">+12</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>15.3 完成品価格の計算例</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>完成品</th><th>計算</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td>ダイヤのツルハシ</td><td>本体30</td><td class="price">30</td></tr>
+            <tr><td>修繕つきダイヤのツルハシ</td><td>本体30 + 修繕12</td><td class="price">42</td></tr>
+            <tr><td>効率5・耐久3・修繕つきダイヤのツルハシ</td><td>30+32+32+12</td><td class="price">106</td></tr>
+            <tr><td>幸運3・効率5・耐久3・修繕つきダイヤのツルハシ</td><td>30+36+32+32+12</td><td class="price">142</td></tr>
+            <tr><td>シルク・効率5・耐久3・修繕つきダイヤのツルハシ</td><td>30+24+32+32+12</td><td class="price">130</td></tr>
+            <tr><td>ダメージ増加5・耐久3・修繕つきダイヤの剣</td><td>20+32+32+12</td><td class="price">96</td></tr>
+            <tr><td>ダメージ軽減4・耐久3・修繕つきダイヤチェストプレート</td><td>80+24+32+12</td><td class="price">148</td></tr>
+            <tr><td>ダメージ軽減4・落下耐性4・耐久3・修繕つきダイヤブーツ</td><td>40+24+20+32+12</td><td class="price">128</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+    <!-- 16. 修繕・修理 -->
+    <section class="section" id="sec16">
+      <div class="section__head"><span class="num">12</span><h2><span class="ico">🔧</span>修繕・修理まわり</h2></div>
+      <div class="section__body">
+        <p>修繕は政府がチート運用で対応するため、高額サービスではなく<strong>生活インフラ</strong>として扱います。</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>内容</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/anvil.png)"></i>通常修繕</td><td class="price">1装備につき1エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/anvil.png)"></i>まとめ修繕</td><td class="price">5装備まで3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/anvil.png)"></i>全身装備＋道具一式</td><td class="price">5エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/anvil.png)"></i>緊急・出張修繕</td><td class="price">追加1〜2エメラルド</td></tr>
+          </tbody>
+        </table></div>
+        <p>修繕が安い分、強力なエンチャントやダイヤ装備は高めのまま維持します。</p>
+      </div>
+    </section>
+    <!-- 23. 装置の扱い -->
+    <section class="section" id="sec23">
+      <div class="section__head"><span class="num">13</span><h2><span class="ico">🔴</span>装置の扱い</h2></div>
+      <div class="section__body">
+        <p>大量に資源・経験値・アイテムを生み出す装置は<strong>政府登録制</strong>とします。</p>
+        <h3>23.1 自由に作ってよい装置</h3>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/piston.png)"></i>自動ドア・隠し扉</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/redstone_lamp.png)"></i>照明装置</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/sticky_piston.png)"></i>エレベーター</span>
+          <span class="tag">音符ブロック装置</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/chest.png)"></i>小規模倉庫仕分け</span>
+        </div>
+        <h3>23.2 登録が必要な装置</h3>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/furnace.png)"></i>自動かまど</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/sugar_cane.png)"></i>自動サトウキビ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bamboo.png)"></i>自動竹</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/white_wool.png)"></i>自動羊毛</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/enchanting_table.png)"></i>自動経験値装置</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/chest.png)"></i>大型仕分け倉庫</span>
+        </div>
+        <h3>23.3 政府買い取り対象の装置</h3>
+        <p>相場を壊しやすい装置は、原則として個人所有禁止とし、政府が買い取ります。製作者には規模・難易度に応じて報酬を支払います。</p>
+        <div class="tags">
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/iron_ingot.png)"></i>アイアンゴーレムトラップ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/gold_ingot.png)"></i>金トラップ</span>
+          <span class="tag">襲撃者トラップ</span>
+          <span class="tag">ガーディアントラップ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/enchanting_table.png)"></i>大型経験値トラップ</span>
+          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bone_meal.png)"></i>大量の骨粉生成装置</span>
+        </div>
+        <h3>23.4 装置利用料</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>装置</th><th>利用料</th></tr></thead>
+          <tbody>
+            <tr><td>小型装置</td><td class="price">10分1エメラルド</td></tr>
+            <tr><td>中型装置</td><td class="price">10分2エメラルド</td></tr>
+            <tr><td>大型装置</td><td class="price">10分3〜5エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanting_table.png)"></i>経験値施設</td><td class="price">10分3エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_ingot.png)"></i>アイアントラップ</td><td class="price">10分5エメラルド</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/gold_ingot.png)"></i>金トラップ</td><td class="price">10分5〜10エメラルド</td></tr>
+          </tbody>
+        </table></div>
+        <h4>チケット制</h4>
+        <div class="table-wrap"><table>
+          <thead><tr><th>チケット</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td>小型装置利用券</td><td class="price">1</td></tr>
+            <tr><td>中型装置利用券</td><td class="price">3</td></tr>
+            <tr><td>大型装置利用券</td><td class="price">5</td></tr>
+            <tr><td>30分利用券</td><td class="price">10</td></tr>
+            <tr><td>1日利用券</td><td class="price">20</td></tr>
+          </tbody>
+        </table></div>
+        <h3>23.5 持ち帰り上限</h3>
+        <ul>
+          <li><strong>アイアントラップ</strong>：10分5エメラルド／鉄2スタックまで／余剰分は国庫へ</li>
+          <li><strong>経験値トラップ</strong>：10分3エメラルド／アイテムドロップは国庫へ／経験値のみ利用可</li>
+          <li><strong>金トラップ</strong>：10分8エメラルド／金の持ち帰り上限あり／腐った肉は国庫または廃棄</li>
+        </ul>
+      </div>
+    </section>
+    <!-- 24. 鉄とレッドストーン -->
+    <section class="section" id="sec24">
+      <div class="section__head"><span class="num">14</span><h2><span class="ico">⛏️</span>鉄とレッドストーンの扱い</h2></div>
+      <div class="section__body">
+        <p><i class="mc" style="background-image:url(assets/icons/iron_ingot.png)"></i> 鉄と <i class="mc" style="background-image:url(assets/icons/redstone.png)"></i> レッドストーンは政府の公共物として扱います。ただし無限ではなく、必要に応じて採取クエストを発行し、国庫に保管します。</p>
+        <ul>
+          <li>少量使用は自由 / 公共目的での使用は自由</li>
+          <li>大量使用はプレイヤー同士で相談</li>
+          <li>個人装置や大量ホッパーなどに使う場合は事前相談</li>
+          <li>不足した場合は政府クエストで補充</li>
+        </ul>
+        <p>8人ワールドのため、細かく縛りすぎず、基本的には相談で運用します。</p>
+      </div>
+    </section>
+    <!-- 25. 税金 -->
+    <section class="section" id="sec25">
+      <div class="section__head"><span class="num">15</span><h2><span class="ico">💰</span>税金</h2></div>
+      <div class="section__body">
+        <p>ワールド内のエメラルドが増えすぎないよう、政府は税金を設定します。</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>税金</th><th>金額</th></tr></thead>
+          <tbody>
+            <tr><td>住民税</td><td class="price">ログイン日ごとに1〜2</td></tr>
+            <tr><td>週払い住民税</td><td class="price">週5</td></tr>
+            <tr><td>店舗税</td><td class="price">週5</td></tr>
+            <tr><td>大型区画維持費</td><td class="price">週5〜10</td></tr>
+            <tr><td>個人倉庫利用料</td><td class="price">週3</td></tr>
+            <tr><td>大型倉庫利用料</td><td class="price">週8</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout callout--warn">
+          <span class="callout-ico">⚠️</span>
+          <div>税金が重すぎるとログイン頻度が低いプレイヤーが不利になります。ログインしていない期間に税金だけが溜まり続ける運用は避けます。</div>
+        </div>
+      </div>
+    </section>
+    <!-- 26. 土地・店舗・名誉 -->
+    <section class="section" id="sec26">
+      <div class="section__head"><span class="num">16</span><h2><span class="ico">🏞️</span>土地・店舗・名誉系サービス</h2></div>
+      <div class="section__body">
+        <h4>土地代</h4>
+        <div class="table-wrap"><table>
+          <thead><tr><th>区画</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td>小区画</td><td class="price">10</td></tr>
+            <tr><td>中区画</td><td class="price">20</td></tr>
+            <tr><td>大区画</td><td class="price">40</td></tr>
+            <tr><td>店舗区画</td><td class="price">30</td></tr>
+          </tbody>
+        </table></div>
+        <h4>店舗営業許可</h4>
+        <div class="table-wrap"><table>
+          <thead><tr><th>内容</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td>初回営業許可</td><td class="price">10</td></tr>
+            <tr><td>店舗看板設置</td><td class="price">5</td></tr>
+            <tr><td>市場の一等地</td><td class="price">追加10</td></tr>
+          </tbody>
+        </table></div>
+        <h4>名誉系サービス</h4>
+        <div class="table-wrap"><table>
+          <thead><tr><th>内容</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td>村の掲示板に名前掲載</td><td class="price">5</td></tr>
+            <tr><td>称号購入</td><td class="price">10</td></tr>
+            <tr><td>銅像・記念碑建設権</td><td class="price">30</td></tr>
+            <tr><td>村の通りの命名権</td><td class="price">50</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+    <!-- 27. イベント参加費 -->
+    <section class="section" id="sec27">
+      <div class="section__head"><span class="num">17</span><h2><span class="ico">🎉</span>イベント参加費</h2></div>
+      <div class="section__body">
+        <div class="table-wrap"><table>
+          <thead><tr><th>イベント</th><th>参加費</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/fishing_rod.png)"></i>釣り大会</td><td class="price">3</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/bricks.png)"></i>建築コンテスト</td><td class="price">5</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_sword.png)"></i>闘技場イベント</td><td class="price">5</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/chest.png)"></i>宝探し</td><td class="price">2</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/horse_spawn_egg.png)"></i>レース大会</td><td class="price">3〜5</td></tr>
+          </tbody>
+        </table></div>
+        <p>イベント賞金は参加費総額の一部から出します。例：参加費合計40エメラルド → 賞金25エメラルド、15エメラルドは政府回収。</p>
+      </div>
+    </section>
+    <!-- 31. 保険制度 -->
+    <section class="section" id="sec31">
+      <div class="section__head"><span class="num">18</span><h2><span class="ico">🛡️</span>保険制度</h2></div>
+      <div class="section__body">
+        <p>装備にエンチャントをつける際、追加で保険料を支払うことで保険に加入できます。</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>対象</th><th>価格</th></tr></thead>
+          <tbody>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_chestplate.png)"></i>鉄装備・鉄道具</td><td class="price">1装備につき5</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_pickaxe.png)"></i>ダイヤ道具</td><td class="price">1装備につき10</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/diamond_chestplate.png)"></i>ダイヤ防具</td><td class="price">1装備につき15</td></tr>
+            <tr><td><i class="mc" style="background-image:url(assets/icons/enchanted_book.png)"></i>エンチャント済み装備</td><td class="price">内容に応じて追加</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout callout--ok">
+          <span class="callout-ico">✅</span>
+          <div>保険加入中の装備は、通常修繕を無料で受けられます。ロスト時は装備本体を補填（エンチャントは一部補助）。</div>
+        </div>
+        <h4>保険対象外</h4>
+        <ul>
+          <li>故意のロスト / PvPによる紛失 / 溶岩遊びなど明らかな危険行為</li>
+          <li>他人への貸し出し中の紛失 / 申告内容が不明確な場合</li>
+        </ul>
+        <p>保険を一度使用した場合、その装備の保険は失効します。再度つける場合は改めて保険料を支払ってください。</p>
+      </div>
+    </section>
+    <!-- 32. 通貨調整 -->
+    <section class="section" id="sec32">
+      <div class="section__head"><span class="num">19</span><h2><span class="ico">📊</span>通貨調整</h2></div>
+      <div class="section__body">
+        <p>政府は、ワールド内のエメラルド量を見ながらインフレ・デフレを調整します。</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="dual-col">
+          <div>
+            <h4>📈 エメラルドが増える入口</h4>
+            <ul>
+              <li>初期配布</li><li>政府クエスト報酬</li><li>採取依頼の報酬</li>
+              <li>イベント報酬</li><li>採掘で手に入るエメラルド</li>
+            </ul>
+          </div>
+          <div>
+            <h4>📉 エメラルドが減る出口</h4>
+            <ul>
+              <li>税金 / 装置利用料 / 土地代</li>
+              <li>エンチャント・ダイヤ装備購入</li>
+              <li>修繕代行 / 保険料 / 店舗営業料</li>
+              <li>イベント参加費 / 名誉系サービス</li>
+            </ul>
+          </div>
+        </div>
+        <h4>調整方針</h4>
+        <p><strong>増えすぎた場合</strong>：政府サービスの価格を上げる / 高額サービスを追加 / 土地代・店舗税・装置利用料を増やす / オークションやイベント参加費を導入。</p>
+        <p><strong>不足した場合</strong>：クエスト報酬を増やす / 税金を下げる / 装置利用料を下げる / 公共事業を増やす。</p>
+      </div>
+    </section>
+    <!-- 33. 禁止事項 -->
+    <section class="section" id="sec33">
+      <div class="section__head"><span class="num">20</span><h2><span class="ico">⛔</span>禁止事項</h2></div>
+      <div class="section__body">
+        <div class="callout callout--warn">
+          <span class="callout-ico">⛔</span>
+          <div>以下の行為は禁止します。違反があった場合は、状況に応じて返納・罰金・取引停止などを行います。</div>
+        </div>
+        <ul>
+          <li>司書以外の村人交易でエメラルドを稼ぐこと / 村人交易を使ったエメラルド量産</li>
+          <li>国庫の私物化</li>
+          <li>他人のチェストや店舗からの無断持ち出し</li>
+          <li>他人の建築物の無断破壊</li>
+          <li>他人のペットを勝手に連れ出す / 故意に死亡させること</li>
+          <li>政府物資の転売</li>
+          <li>経済ルールを回避する目的での抜け道利用</li>
+          <li>通貨や高価な物資の無断持ち出し</li>
+          <li>無許可の大型装置の長時間稼働</li>
+          <li>相場を壊す目的での大量生産・大量販売</li>
+        </ul>
+      </div>
+    </section>
+    <!-- 34. 価格改定 -->
+    <section class="section" id="sec34">
+      <div class="section__head"><span class="num">21</span><h2><span class="ico">🔄</span>価格改定</h2></div>
+      <div class="section__body">
+        <p>経済バランスを保つため、政府買取価格・クエスト報酬・エンチャント価格・装置利用料・税金・保険内容はあとから変更する場合があります。ただし、変更する場合は事前に告知します。</p>
+        <div class="callout callout--ok">
+          <span class="callout-ico">🌟</span>
+          <div>価格改定の目的は、誰かを損させることではなく、プレイヤー同士の取引が楽しく続くようにすることです。</div>
+        </div>
+      </div>
+    </section>
+</div>
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

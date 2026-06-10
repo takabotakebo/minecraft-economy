@@ -1,0 +1,15 @@
+# Claude Code のローカル設定・作業メモ（リポジトリには含めない）
+.claude/
+memory/
+
+# OS / エディタ
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+
+# 一時ファイル
+_*.py
+_*.html
+_*.png
+*.bak

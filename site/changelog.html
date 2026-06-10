@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>変更履歴｜マイクラ経済ワールド</title>
+<link rel="icon" href="assets/icons/emerald.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="changelog" data-depth="0">
+<div id="app">
+
+  <section class="hero hero--page">
+    <div class="hero-icons">
+      <i class="mc mc-xl" style="background-image:url(assets/icons/book.png)"></i>
+      <i class="mc mc-xl" style="background-image:url(assets/icons/clock.png)"></i>
+    </div>
+    <div class="hero-kicker">CHANGELOG</div>
+    <h1><span class="hero-emoji">📝</span>変更履歴</h1>
+    <p>ルール改定の履歴です。新しい版が出るたびに、ここへ追記していきます。</p>
+  </section>
+
+  <!-- v0.1.0 -->
+  <section class="section" id="v010">
+    <div class="section__head">
+      <span class="num">v0.1.0</span>
+      <h2><span class="ico">🌱</span>初版リリース</h2>
+    </div>
+    <div class="section__body">
+      <p style="color:var(--mc-text-dim);">2026-06-10</p>
+      <div class="callout callout--ok">
+        <i class="mc callout-ico" style="background-image:url(assets/icons/emerald.png)"></i>
+        <div>マイクラ8人ワールドの経済・職業・政府運用ルール 完全版（初版）を公開しました。</div>
+      </div>
+      <h4>収録内容</h4>
+      <ul>
+        <li>基本方針・通貨（エメラルド）・禁止入手法・初期支給</li>
+        <li>7職業（材料屋・農家・冒険家・建築家・装置技師・調教師・運営政府）の役割と相場</li>
+        <li>政府提供品・公共物・苗木・骨粉・国庫・政府クエスト</li>
+        <li>各種価格表（基本物資・基本装備・ダイヤ装備・エンチャント・修繕）</li>
+        <li>装置の扱い・利用料・税金・土地・店舗・保険・通貨調整・禁止事項</li>
+      </ul>
+      <p style="margin-top:12px;">原文ルール：<code>rules/minecraft_world_economy_rules_v0-1-0.md</code></p>
+    </div>
+  </section>
+
+  <!-- 運用メモ -->
+  <section class="section" id="memo">
+    <div class="section__head">
+      <span class="num">📌</span>
+      <h2><span class="ico">📝</span>運用メモ</h2>
+    </div>
+    <div class="section__body">
+      <p>今後ルール改定があった場合は、以下の手順で更新します。</p>
+      <ol>
+        <li><code>rules/</code> に新バージョンの md を作成（例：<code>..._v0-2-0.md</code>）</li>
+        <li>本サイトの該当ページ（<code>system.html</code> / <code>jobs.html</code> など）を更新</li>
+        <li><code>js/nav.js</code> のバージョン表記を更新</li>
+        <li>このページに新しい版のエントリを追記</li>
+      </ol>
+      <div class="callout callout--info">
+        <span class="callout-ico">ℹ️</span>
+        <div>バージョニングは <strong>v[メジャー].[マイナー].[パッチ]</strong> 形式。<br>
+        大きな制度変更＝マイナー繰り上げ、価格や文言の小修正＝パッチ繰り上げを目安にします。</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
