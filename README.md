@@ -26,6 +26,7 @@ MINECRAFT_economy/
 │   ├── css/style.css                           ← マイクラ風スタイル
 │   ├── js/nav.js                               ← 共通ヘッダー/サイドナビ/フッターを注入
 │   ├── js/main.js                              ← スクロール連動・トップ戻り
+│   ├── functions/_middleware.js                ← Cloudflare Pages のベーシック認証
 │   └── assets/icons/                           ← Minecraftアイテムアイコン 1854種（全件）
 └── README.md
 ```
@@ -33,7 +34,41 @@ MINECRAFT_economy/
 ## サイトの見方
 
 `site/index.html` をブラウザで開くだけで表示できます（ビルド不要の静的サイト）。
-WEB公開する場合はベーシック認証をかけて限定公開する想定です。
+WEB公開する場合はベーシック認証をかけて限定公開します。
+
+## Cloudflare Pages での公開（ベーシック認証あり）
+
+このサイトは **Cloudflare Pages** での公開を想定しています。
+
+### デプロイ設定
+
+Cloudflare ダッシュボード → Workers & Pages → Create → Pages → Connect to Git で
+このリポジトリ（`takabotakebo/minecraft-economy`）を選び、以下を設定します。
+
+| 項目 | 値 |
+|---|---|
+| Production branch | `main` |
+| Build command | （空欄） |
+| Build output directory | `site` |
+
+> **重要**: 出力ディレクトリを `site` にすること。`site/functions/_middleware.js` が
+> Pages Functions として自動で読み込まれ、全ページにベーシック認証がかかります。
+
+### ベーシック認証の情報
+
+- ユーザー名: `gkr`
+- パスワード: `gkr`
+
+認証ロジックは [`site/functions/_middleware.js`](site/functions/_middleware.js) にあります。
+**より安全に運用したい場合**は、ソースに直書きせず Cloudflare の環境変数で上書きできます。
+ダッシュボードの Settings → Environment variables で次を設定してください。
+
+| 変数名 | 値 |
+|---|---|
+| `BASIC_AUTH_USER` | 任意のユーザー名 |
+| `BASIC_AUTH_PASS` | 任意のパスワード |
+
+環境変数が設定されていればそちらが優先され、未設定なら既定の `gkr` / `gkr` が使われます。
 
 ## ルール改定の手順（今後のバージョンアップ）
 
