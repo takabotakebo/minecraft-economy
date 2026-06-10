@@ -10,7 +10,9 @@
 MINECRAFT_economy/
 ├── rules/                                      ← ルール本文（マスター。改定はここから）
 │   └── minecraft_world_economy_rules_v0-1-0.md
-├── site/                                       ← 公開サイト（マルチページ）
+├── functions/                                  ← Cloudflare Pages Functions（リポジトリ直下に置く）
+│   └── _middleware.js                          ← 全ページのベーシック認証
+├── site/                                       ← 公開サイト（= ビルド出力ディレクトリ）
 │   ├── index.html                              ← ホーム（概要＋各ページ入口）
 │   ├── system.html                             ← PART1 国のシステム
 │   ├── jobs.html                               ← PART2 各職業（概要・共通ルール）
@@ -26,10 +28,13 @@ MINECRAFT_economy/
 │   ├── css/style.css                           ← マイクラ風スタイル
 │   ├── js/nav.js                               ← 共通ヘッダー/サイドナビ/フッターを注入
 │   ├── js/main.js                              ← スクロール連動・トップ戻り
-│   ├── functions/_middleware.js                ← Cloudflare Pages のベーシック認証
 │   └── assets/icons/                           ← Minecraftアイテムアイコン 1854種（全件）
 └── README.md
 ```
+
+> **Cloudflare Pages の注意**: Functions の `functions/` ディレクトリは
+> **ビルド出力ディレクトリ（`site`）の中ではなく、リポジトリのルート直下**に置きます。
+> Cloudflare はリポジトリルートの `functions/` を Pages Functions として読み込むためです。
 
 ## サイトの見方
 
@@ -50,16 +55,21 @@ Cloudflare ダッシュボード → Workers & Pages → Create → Pages → Co
 | Production branch | `main` |
 | Build command | （空欄） |
 | Build output directory | `site` |
+| Root directory | （空欄＝リポジトリ直下のまま） |
 
-> **重要**: 出力ディレクトリを `site` にすること。`site/functions/_middleware.js` が
-> Pages Functions として自動で読み込まれ、全ページにベーシック認証がかかります。
+> **重要**:
+> - 出力ディレクトリは `site`（静的ファイルがここにある）。
+> - **Root directory は空欄のまま**にすること。`functions/` はリポジトリ直下にあり、
+>   Cloudflare はルート直下の `functions/_middleware.js` を Pages Functions として
+>   読み込んで全ページにベーシック認証をかけます。Root directory を `site` にすると
+>   `functions/` が見つからず認証が無効になるので注意。
 
 ### ベーシック認証の情報
 
 - ユーザー名: `gkr`
 - パスワード: `gkr`
 
-認証ロジックは [`site/functions/_middleware.js`](site/functions/_middleware.js) にあります。
+認証ロジックは [`functions/_middleware.js`](functions/_middleware.js) にあります。
 **より安全に運用したい場合**は、ソースに直書きせず Cloudflare の環境変数で上書きできます。
 ダッシュボードの Settings → Environment variables で次を設定してください。
 
