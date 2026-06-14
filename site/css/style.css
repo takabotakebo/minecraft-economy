@@ -105,6 +105,25 @@ body {
 }
 
 .header-left { display: flex; align-items: center; gap: 12px; }
+.header-right { display: flex; align-items: center; gap: 10px; }
+
+/* 管理ページへの歯車（ローカル時のみ表示） */
+.gear-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  font-size: 1.3rem;
+  color: #fff;
+  text-decoration: none;
+  background: var(--mc-bg-panel);
+  border: 2px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  line-height: 1;
+}
+.gear-link:hover { background: var(--mc-bg-panel-light); transform: rotate(30deg); }
 
 /* ============ グローバルナビ（ヘッダー横並び＋ドロップダウン） ============ */
 .globalnav {
@@ -633,6 +652,30 @@ table td.num { text-align: right; white-space: nowrap; }
   font-weight: bold;
 }
 .job-detail-link:hover { background: var(--mc-bg-panel-light); color: #fff; }
+
+/* 価格の補足（範囲・条件など） */
+.price-sub {
+  color: var(--mc-text-dim);
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
+/* 価格テーブルの注記・エラー */
+.price-note {
+  font-size: 0.85rem;
+  color: var(--mc-text-dim);
+  margin: 6px 0 10px;
+  padding-left: 10px;
+  border-left: 3px solid var(--mc-border-light);
+}
+.price-error {
+  color: var(--mc-redstone);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-redstone);
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
 
 /* ホームの3部カード */
 .home-cards {

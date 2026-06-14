@@ -25,10 +25,17 @@ MINECRAFT_economy/
 │   │   └── tamer.html     (調教師)
 │   ├── summary.html                            ← PART3 まとめ
 │   ├── changelog.html                          ← 変更履歴ページ
+│   ├── admin.html                              ← 価格管理ページ（ローカル専用）
+│   ├── data/prices.json                        ← 全価格データのマスター（職業→カテゴリ→項目）
 │   ├── css/style.css                           ← マイクラ風スタイル
+│   ├── css/admin.css                           ← 価格管理ページ専用スタイル
 │   ├── js/nav.js                               ← 共通ヘッダー/サイドナビ/フッターを注入
 │   ├── js/main.js                              ← スクロール連動・トップ戻り
+│   ├── js/price-table.js                       ← prices.json から価格表を生成
+│   ├── js/admin.js                             ← 価格管理ページのロジック
 │   └── assets/icons/                           ← Minecraftアイテムアイコン 1854種（全件）
+├── tools/
+│   └── dev_server.py                           ← ローカル編集サーバー（保存API付き・公開には使わない）
 └── README.md
 ```
 
@@ -40,6 +47,71 @@ MINECRAFT_economy/
 
 `site/index.html` をブラウザで開くだけで表示できます（ビルド不要の静的サイト）。
 WEB公開する場合はベーシック認証をかけて限定公開します。
+
+> **ローカル確認時の注意**: 価格表は `data/prices.json` を `fetch` で読み込みます。
+> `file://` で直接 HTML を開くと CORS でブロックされ価格表が出ません。
+> ローカルで価格表まで確認したいときは簡易サーバー経由で開いてください。
+> 例: `cd site && python -m http.server 8000` → `http://localhost:8000/`
+
+## 価格データの一元管理（重要）
+
+エメラルドが関わる**全ての価格・相場は [`site/data/prices.json`](site/data/prices.json) が唯一のマスター**です（schema 2）。
+
+### データ構造（職業 → カテゴリ → 項目）
+
+```jsonc
+{
+  "meta": { "version": "v0.2.0", "currency": "エメラルド", "diamondToEmerald": 10, "schema": 2 },
+  "jobs": [
+    {
+      "id": "government", "label": "政府", "emoji": "🏛️",
+      "categories": [
+        {
+          "id": "basic_goods", "title": "政府提供・基本物資価格",
+          "columns": ["品目", "数量", "価格"],
+          "items": [
+            { "icon": "baked_potato", "name": "ベイクドポテト", "qty": "1スタック", "price": 0 }
+          ]
+        }
+      ]
+    }
+    // farmer / material / adventurer / builder / engineer / tamer / common ...
+  ]
+}
+```
+
+- **価格 `price` は数値のみ**（後で作る計算ツール用）。`0` は「無料」と表示されます。
+- 単位（`/10分`・`/1装備` など）は **`unit`**、範囲や但し書き（`3〜5` など）は **`note`** に分けて持ちます。
+  表示は「3エメラルド/10分（範囲 3〜5）」のように組み立てられます。
+- 「政府」も1つの職業として `jobs` に入っています。
+
+### 表示のしくみ
+
+- 各ページの価格表は HTML に直書きせず `<div data-price-table="カテゴリID"></div>` のマーカーだけ。
+  表示時に [`site/js/price-table.js`](site/js/price-table.js) が `prices.json` を読み、該当カテゴリの表を生成します。
+- **価格を改定するときは `prices.json` を書き換えるだけ**で全ページに反映されます。
+
+### 価格管理ページ（ローカル専用）
+
+ブラウザ上で価格を編集できる管理ページ [`site/admin.html`](site/admin.html) を用意しています。
+
+- **ローカル環境（localhost / file:）でのみ**、ヘッダー右上に⚙歯車が出て管理ページへ入れます。
+  公開環境（pages.dev 等）では歯車も出ず、実質アクセスされません。
+- 職業・カテゴリ・項目の **編集／追加／削除**、カテゴリの**別職業への移動**ができます。価格欄は数値入力。
+- **保存方法**: 下記のローカル編集サーバー経由なら「保存」で `data/prices.json` に直接上書きされます。
+  サーバーが無い場合は File System Access API（Chrome）→ ダウンロードの順にフォールバックします。
+
+### ローカル編集サーバー
+
+価格編集と動作確認は、保存APIつきの開発サーバーで行います。
+
+```bash
+python tools/dev_server.py      # リポジトリのルートで実行
+# → http://localhost:8000/  を開く（価格表の fetch も動く）
+# → 右上の⚙から管理ページ。編集して「保存」で data/prices.json に直接書き込み
+```
+
+公開時は、編集後の `prices.json` を含めて push するだけです（サーバーや管理ページは公開に影響しません）。
 
 ## Cloudflare Pages での公開（ベーシック認証あり）
 

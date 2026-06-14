@@ -175,17 +175,7 @@
       <div class="section__head"><span class="num">24</span><h2><span class="ico">⏱️</span>相場設計の基準</h2></div>
       <div class="section__body">
         <p>基本労働は、<strong>1時間あたり8〜12エメラルド程度</strong>を目安にします。危険な探索・専門技術・建築・装置制作などは高めに設定します。</p>
-        <div class="table-wrap"><table>
-          <thead><tr><th>種類</th><th>1時間あたりの収入目安</th></tr></thead>
-          <tbody>
-            <tr><td>基本素材集め</td><td class="price">8〜12エメラルド</td></tr>
-            <tr><td>農業・畜産</td><td class="price">6〜12エメラルド</td></tr>
-            <tr><td>危険探索</td><td class="price">12〜20エメラルド</td></tr>
-            <tr><td>建築</td><td class="price">15〜25エメラルド</td></tr>
-            <tr><td>装置制作</td><td class="price">15〜30エメラルド</td></tr>
-            <tr><td>調教師</td><td class="price">8〜18エメラルド</td></tr>
-          </tbody>
-        </table></div>
+        <div data-price-table="labor_guide"></div>
       </div>
     </section>
     <!-- 12. 納品クエスト価格 -->
@@ -193,28 +183,7 @@
       <div class="section__head"><span class="num">25</span><h2><span class="ico">📦</span>政府への納品クエスト価格</h2></div>
       <div class="section__body">
         <p>政府への納品は常設買取ではなく、必要な時にクエストとして募集します。素材系は1時間ほどの作業で8〜12エメラルド程度になるよう調整します。</p>
-        <div class="table-wrap"><table>
-          <thead><tr><th>納品物</th><th>数量</th><th>報酬</th></tr></thead>
-          <tbody>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/oak_log.png)"></i>原木</td><td class="num">4スタック</td><td class="price">2エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/oak_log.png)"></i>原木</td><td class="num">8スタック</td><td class="price">4エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/cobblestone.png)"></i>丸石</td><td class="num">4スタック</td><td class="price">1エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/cobblestone.png)"></i>丸石</td><td class="num">8スタック</td><td class="price">2エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/stone.png)"></i>石</td><td class="num">4スタック</td><td class="price">2エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/stone.png)"></i>石</td><td class="num">8スタック</td><td class="price">4エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/stone_bricks.png)"></i>石レンガ</td><td class="num">4スタック</td><td class="price">3エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/sand.png)"></i>砂</td><td class="num">4スタック</td><td class="price">2エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/glass.png)"></i>ガラス</td><td class="num">4スタック</td><td class="price">3エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/dirt.png)"></i>土</td><td class="num">4スタック</td><td class="price">1エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/coal.png)"></i>石炭</td><td class="num">1スタック</td><td class="price">2エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/charcoal.png)"></i>木炭</td><td class="num">1スタック</td><td class="price">1エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/iron_ingot.png)"></i>鉄</td><td class="num">1スタック</td><td class="price">3エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/redstone.png)"></i>レッドストーン</td><td class="num">1スタック</td><td class="price">2エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/bone.png)"></i>骨</td><td class="num">32個</td><td class="price">1エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/gunpowder.png)"></i>火薬</td><td class="num">32個</td><td class="price">1エメラルド</td></tr>
-            <tr><td><i class="mc" style="background-image:url(assets/icons/rotten_flesh.png)"></i>腐った肉</td><td class="num">64個</td><td class="price">1エメラルド</td></tr>
-          </tbody>
-        </table></div>
+        <div data-price-table="supply_quest"></div>
         <p>政府在庫が十分にある場合は買取を停止します。報酬は必要度・危険度・不足状況に応じて一時的に上げる場合があります。</p>
       </div>
     </section>
@@ -260,5 +229,6 @@
 </div>
 <script src="js/nav.js"></script>
 <script src="js/main.js"></script>
+<script src="js/price-table.js"></script>
 </body>
 </html>

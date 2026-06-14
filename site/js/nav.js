@@ -11,8 +11,13 @@
   var current = body.getAttribute('data-page') || '';
   var P = depth > 0 ? '../'.repeat(depth) : '';   // ルートへの相対プレフィックス
 
+  /* ---- ローカル判定（localhost / 127.0.0.1 / file: のときだけ管理機能を出す） ---- */
+  var host = location.hostname;
+  var IS_LOCAL = (host === 'localhost' || host === '127.0.0.1' ||
+                  host === '' || location.protocol === 'file:');
+
   /* ---- サイト構造定義 ---- */
-  var VERSION = 'v0.1.1';
+  var VERSION = 'v0.2.0';
   var JOBS = [
     { key: 'job-material',   href: 'jobs/material.html',   emoji: '🧱', label: '材料屋' },
     { key: 'job-farmer',     href: 'jobs/farmer.html',     emoji: '🍞', label: '農家' },
@@ -74,9 +79,14 @@
               '<span class="site-title__text">マイクラ経済ワールド</span></a>' +
           '</div>' +
           '<nav class="globalnav" id="globalnav">' + links + '</nav>' +
-          '<span class="version-badge">' +
-            '<i class="mc" style="background-image:url(' + abs('assets/icons/emerald.png') + ')"></i> ' + VERSION +
-          '</span>' +
+          '<div class="header-right">' +
+            (IS_LOCAL
+              ? '<a class="gear-link" href="' + abs('admin.html') + '" title="価格データ管理（ローカル専用）" aria-label="価格データ管理">⚙</a>'
+              : '') +
+            '<span class="version-badge">' +
+              '<i class="mc" style="background-image:url(' + abs('assets/icons/emerald.png') + ')"></i> ' + VERSION +
+            '</span>' +
+          '</div>' +
         '</div>' +
       '</header>';
   }

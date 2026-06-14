@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>価格データ管理（ローカル専用）｜マイクラ経済ワールド</title>
+<link rel="icon" href="assets/icons/redstone.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="admin" data-depth="0">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="header-left">
+      <a href="index.html" class="site-title">
+        <i class="mc mc-lg" style="background-image:url(assets/icons/dirt.png)"></i>
+        <span class="site-title__text">マイクラ経済ワールド</span>
+      </a>
+    </div>
+    <span class="version-badge">
+      <i class="mc" style="background-image:url(assets/icons/redstone.png)"></i> 価格管理
+    </span>
+  </div>
+</header>
+
+<div class="admin-wrap">
+
+  <section class="hero hero--page">
+    <div class="hero-icons">
+      <i class="mc mc-xl" style="background-image:url(assets/icons/emerald.png)"></i>
+      <i class="mc mc-xl" style="background-image:url(assets/icons/redstone.png)"></i>
+    </div>
+    <div class="hero-kicker">ADMIN（ローカル専用）</div>
+    <h1><span class="hero-emoji">⚙️</span>価格データ管理</h1>
+    <p><code>data/prices.json</code> の全価格を一覧編集します。価格欄を書き換えて「JSONを保存」を押すと、ファイルに上書きされます。</p>
+  </section>
+
+  <!-- 公開環境警告（ローカル以外で開いたとき表示） -->
+  <div id="prodWarning" class="callout callout--warn" style="display:none;">
+    <span class="callout-ico">⚠️</span>
+    <div>この管理ページは<strong>ローカル環境（localhost）専用</strong>です。公開環境では保存できません。
+    編集は手元で <code>python -m http.server</code> 経由で開いて行ってください。</div>
+  </div>
+
+  <!-- ツールバー -->
+  <div class="admin-toolbar">
+    <button id="saveBtn" class="admin-btn admin-btn--primary">💾 保存</button>
+    <button id="addJobBtn" class="admin-btn">👤 職業を追加</button>
+    <button id="downloadBtn" class="admin-btn">⬇ ダウンロード保存</button>
+    <input type="search" id="filter" class="admin-filter" placeholder="🔍 名前・職業で絞り込み…">
+    <span id="status" class="admin-status"></span>
+  </div>
+
+  <div class="admin-hint" id="fsHint"></div>
+
+  <div class="admin-note callout callout--info" style="margin-bottom:16px;">
+    <span class="callout-ico">💡</span>
+    <div>構造は <strong>職業 → カテゴリ → 項目</strong>。価格は<strong>数値のみ</strong>（あとで計算ツールで使います）。
+    「○エメラルド/10分」のような単位は<strong>単位</strong>欄へ、範囲や但し書きは<strong>補足</strong>欄へ。
+    職業名・カテゴリ名はその場で編集でき、カテゴリは別の職業へ移動もできます。</div>
+  </div>
+
+  <!-- 職業ごとのブロックをここに描画 -->
+  <div id="jobsRoot"></div>
+
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

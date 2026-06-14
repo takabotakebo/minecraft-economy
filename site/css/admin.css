@@ -1,0 +1,216 @@
+/* ============================================================
+   価格データ管理ページ専用スタイル
+   ============================================================ */
+.admin-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  position: sticky;
+  top: 70px;
+  z-index: 50;
+  background: var(--mc-bg-panel);
+  border: 3px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+
+.admin-btn {
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: bold;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.admin-btn:hover { background: var(--mc-bg-panel-light); color: #fff; }
+.admin-btn--primary {
+  background: var(--mc-emerald-dark);
+  color: #fff;
+  border-color: var(--mc-emerald);
+}
+.admin-btn--primary:hover { background: var(--mc-emerald); color: var(--mc-bg); }
+.admin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.admin-filter {
+  flex: 1;
+  min-width: 180px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 8px 12px;
+}
+
+.admin-status {
+  font-size: 0.9rem;
+  color: var(--mc-text-dim);
+}
+.admin-status.ok { color: var(--mc-emerald); }
+.admin-status.err { color: var(--mc-redstone); }
+.admin-status.dirty { color: var(--mc-gold); }
+
+.admin-hint {
+  font-size: 0.82rem;
+  color: var(--mc-text-dim);
+  margin: 6px 0 14px;
+}
+
+/* 一覧テーブル */
+.admin-table { width: 100%; }
+.admin-table th {
+  position: sticky;
+  top: 0;
+  background: var(--mc-emerald-dark);
+  z-index: 1;
+}
+.admin-table td { vertical-align: middle; }
+
+.admin-cat {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  background: var(--mc-bg-panel-light);
+  border: 1px solid var(--mc-border-dark);
+  color: var(--mc-diamond);
+  white-space: nowrap;
+}
+
+.admin-price-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--mc-emerald);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 6px 10px;
+  text-align: right;
+}
+.admin-price-input:focus {
+  outline: none;
+  border-color: var(--mc-emerald);
+  background: #11212a;
+}
+.admin-price-input.changed {
+  border-color: var(--mc-gold);
+  color: var(--mc-gold);
+}
+
+.admin-name { font-weight: bold; color: #fff; }
+.admin-sub { font-size: 0.85rem; color: var(--mc-text-dim); }
+
+/* 編集可能なテキスト入力（名前・サブ） */
+.admin-text {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 6px 10px;
+}
+.admin-text:focus { outline: none; border-color: var(--mc-diamond); background: #11212a; }
+.admin-text.changed { border-color: var(--mc-gold); }
+.admin-sub-input { color: var(--mc-text-dim); }
+
+/* 価格セル内のレイアウト（入力＋削除ボタン） */
+.price-cell { display: flex; align-items: center; gap: 6px; }
+.price-cell .admin-price-input { flex: 1; }
+
+/* 小さいボタン（行追加・削除） */
+.admin-mini {
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: var(--mc-text);
+  background: var(--mc-bg-panel-light);
+  border: 2px solid var(--mc-border-dark);
+  padding: 5px 9px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.admin-mini:hover { background: var(--mc-emerald-dark); color: #fff; }
+.delRow:hover { background: var(--mc-redstone); }
+
+/* 行が絞り込みで隠れる */
+tr.hidden { display: none; }
+
+/* ---- 職業ブロック ---- */
+.adm-job {
+  border: 3px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  background: var(--mc-bg-panel);
+  margin-bottom: 22px;
+}
+.adm-job__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, var(--mc-emerald-dark), var(--mc-green-dark));
+  border-bottom: 3px solid var(--mc-border-dark);
+}
+.adm-job__emoji { font-size: 1.6rem; }
+.adm-job__label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0,0,0,0.25);
+  border: 2px solid var(--mc-border-dark);
+  padding: 6px 10px;
+  min-width: 140px;
+}
+.adm-job__id { font-size: 0.8rem; color: #d8e8c8; opacity: 0.8; }
+.adm-job__head .addCat { margin-left: auto; }
+
+/* ---- カテゴリブロック ---- */
+.adm-cat { padding: 10px 14px 16px; border-top: 1px solid var(--mc-border-dark); }
+.adm-cat__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.adm-cat__title {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--mc-gold);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 5px 10px;
+  min-width: 200px;
+}
+.adm-cat__id { font-size: 0.78rem; color: var(--mc-text-dim); }
+.adm-cat__move {
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 5px 8px;
+}
+.adm-cat__head .delCat { color: var(--mc-redstone); }
+.adm-cat__head .delCat:hover { background: var(--mc-redstone); color: #fff; }
+
+/* カテゴリの区切り見出し行 */
+tr.cat-head td {
+  background: var(--mc-bg);
+  color: var(--mc-gold);
+  font-weight: bold;
+  border-left: 4px solid var(--mc-gold);
+}

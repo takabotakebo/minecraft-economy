@@ -20,6 +20,31 @@
     <p>ルール改定の履歴です。新しい版が出るたびに、ここへ追記していきます。</p>
   </section>
 
+  <!-- v0.2.0 -->
+  <section class="section" id="v020">
+    <div class="section__head">
+      <span class="num">v0.2.0</span>
+      <h2><span class="ico">💹</span>価格データの一元管理・価格改定</h2>
+    </div>
+    <div class="section__body">
+      <p style="color:var(--mc-text-dim);">2026-06-14</p>
+      <div class="callout callout--ok">
+        <i class="mc callout-ico" style="background-image:url(assets/icons/emerald.png)"></i>
+        <div>エメラルドが関わる全価格を <code>data/prices.json</code> に一元化し、価格の見直しと管理のしくみを整えました。</div>
+      </div>
+      <h4>主な変更</h4>
+      <ul>
+        <li>全価格・相場を <strong><code>data/prices.json</code> に集約</strong>。各ページはそれを参照して表を生成（価格の出典が1か所に）</li>
+        <li>データ構造を <strong>職業 → カテゴリ → 項目</strong> の階層に再設計（政府も1職業として扱う）</li>
+        <li>価格を<strong>数値のみ</strong>で保持（単位は <code>unit</code>、範囲や但し書きは <code>note</code> に分離）。今後の計算ツールに対応</li>
+        <li><strong>価格管理ページ</strong>を追加（ローカル専用）。職業・カテゴリ・項目の編集／追加／削除が可能</li>
+        <li>各種価格の見直し（基本物資・基本装備の無料化、骨粉・エンチャント・保険などの調整）</li>
+      </ul>
+      <p style="margin-top:12px;color:var(--mc-text-dim);font-size:0.85rem;">
+        ※ 価格管理ページ（歯車アイコン）は手元のローカル環境でのみ表示され、公開サイトには出ません。</p>
+    </div>
+  </section>
+
   <!-- v0.1.1 -->
   <section class="section" id="v011">
     <div class="section__head">
@@ -92,5 +117,6 @@
 </div>
 <script src="js/nav.js"></script>
 <script src="js/main.js"></script>
+<script src="js/price-table.js"></script>
 </body>
 </html>
