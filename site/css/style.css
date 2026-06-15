@@ -93,12 +93,15 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
   font-family: 'DotGothic16', sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
   color: #fff;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 }
+.site-title__text { white-space: nowrap; }
 
 .site-title .grass-block {
   font-size: 1.8rem;
@@ -613,12 +616,19 @@ table td.num { text-align: right; white-space: nowrap; }
 
 /* 職業カードグリッド */
 .job-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 12px;
   margin: 14px 0;
 }
 .job-card {
+  flex: 0 1 150px;
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: var(--mc-bg);
   border: 2px solid var(--mc-border-light);
   border-bottom-color: var(--mc-border-dark);
@@ -633,7 +643,7 @@ table td.num { text-align: right; white-space: nowrap; }
   transform: translateY(-3px);
   border-color: var(--mc-emerald);
 }
-.job-card .job-ico { font-size: 2rem; display: block; margin-bottom: 8px; }
+.job-card .job-ico { width: 2.4em; height: 2.4em; margin: 0 auto 8px; }
 .job-card .job-name { font-weight: bold; color: #fff; }
 
 /* 職業詳細ページへの誘導リンク */
@@ -652,6 +662,117 @@ table td.num { text-align: right; white-space: nowrap; }
   font-weight: bold;
 }
 .job-detail-link:hover { background: var(--mc-bg-panel-light); color: #fff; }
+
+/* 職業ページ：一覧へ戻る導線 */
+.job-back { margin-bottom: 8px; }
+.job-back a {
+  color: var(--mc-text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.job-back a:hover { color: var(--mc-emerald); text-decoration: underline; }
+
+/* 各職業の役割カード（職業ごとの区切りを明確に） */
+.role-card {
+  background: var(--mc-bg);
+  border: 3px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  margin: 18px 0;
+  scroll-margin-top: 90px;
+  overflow: hidden;
+}
+.role-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(180deg, var(--mc-emerald-dark), var(--mc-green-dark));
+  border-bottom: 3px solid var(--mc-border-dark);
+}
+.role-card__icon { width: 1.8em; height: 1.8em; flex-shrink: 0; }
+.role-card__name {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+.role-card__body { padding: 16px 18px 18px; }
+.role-card__body > * + * { margin-top: 10px; }
+.role-card__desc { color: var(--mc-text); }
+/* カード内の見出しは少し控えめに（カードヘッダーと差をつける） */
+.role-card__body h4 {
+  color: var(--mc-gold);
+  font-size: 1rem;
+  margin-top: 14px;
+  padding-left: 10px;
+  border-left: 3px solid var(--mc-gold);
+}
+
+/* ===== 価格表・検索ページ ===== */
+.price-search {
+  position: sticky;
+  top: 76px;
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: var(--mc-bg-panel);
+  border: 3px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+.price-search__input {
+  flex: 1;
+  min-width: 200px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 10px 12px;
+}
+.price-search__input:focus { outline: none; border-color: var(--mc-emerald); }
+.price-search__select {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 9px 10px;
+}
+.price-search__count { font-size: 0.9rem; color: var(--mc-emerald); white-space: nowrap; }
+
+.price-job {
+  background: var(--mc-bg-panel);
+  border: 3px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  margin-bottom: 20px;
+}
+.price-job__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, var(--mc-emerald-dark), var(--mc-green-dark));
+  border-bottom: 3px solid var(--mc-border-dark);
+}
+.price-job__head .mc { width: 1.6em; height: 1.6em; }
+.price-job__name { font-size: 1.2rem; font-weight: bold; color: #fff; text-shadow: 2px 2px 0 rgba(0,0,0,0.5); }
+.price-job__link {
+  margin-left: auto;
+  color: #eaffd8;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: bold;
+}
+.price-job__link:hover { text-decoration: underline; color: #fff; }
+.price-cat { padding: 8px 16px 14px; }
+.price-cat__title { color: var(--mc-gold); font-size: 1rem; margin: 8px 0; padding-left: 10px; border-left: 3px solid var(--mc-gold); }
 
 /* 価格の補足（範囲・条件など） */
 .price-sub {
@@ -713,6 +834,28 @@ table td.num { text-align: right; white-space: nowrap; }
 .home-card--p2 { box-shadow: inset 0 -4px 0 #b8860b; }
 .home-card--p3 { box-shadow: inset 0 -4px 0 #2a6ca0; }
 
+/* ホーム：価格表への大きな導線 */
+.price-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0 4px;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, var(--mc-bg-panel-light), var(--mc-bg-panel));
+  border: 3px solid var(--mc-gold);
+  border-bottom-color: #b8860b;
+  border-right-color: #b8860b;
+  text-decoration: none;
+  color: var(--mc-text);
+  transition: transform 0.1s;
+}
+.price-cta:hover { transform: translateY(-3px); border-color: var(--mc-emerald); }
+.price-cta__icon { font-size: 2.2rem; flex-shrink: 0; }
+.price-cta__body { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.price-cta__title { font-size: 1.15rem; font-weight: bold; color: #fff; }
+.price-cta__desc { font-size: 0.9rem; color: var(--mc-text-dim); }
+.price-cta__go { color: var(--mc-gold); font-weight: bold; white-space: nowrap; }
+
 /* 2カラム（通貨調整など） */
 .dual-col > div {
   background: var(--mc-bg);
@@ -758,10 +901,13 @@ table td.num { text-align: right; white-space: nowrap; }
 
 /* ============ レスポンシブ ============ */
 
-/* 中間幅：グローバルナビが入り切らないので折り返し・縮小 */
-@media (max-width: 1100px) {
-  .globalnav { gap: 0; }
-  .navlink { padding: 8px 8px; font-size: 0.85rem; }
+/* 中間幅：グローバルナビが入り切らないので縮小＋ロゴテキスト省略 */
+@media (max-width: 1240px) {
+  .navlink { padding: 8px 7px; font-size: 0.82rem; }
+  .navlink .ico { font-size: 1rem; }
+}
+@media (max-width: 1140px) {
+  .site-title__text { display: none; }
 }
 
 /* タブレット以下：グローバルナビを隠してサイドナビ（ハンバーガー）へ集約 */

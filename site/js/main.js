@@ -8,6 +8,11 @@
 (function () {
   'use strict';
 
+  // nav.js は非同期にレイアウトを注入する。要素が揃ってから初期化する。
+  if (document.getElementById('sidenav')) init();
+  else document.addEventListener('nav:ready', init, { once: true });
+
+  function init() {
   var sidenav = document.getElementById('sidenav');
   var backdrop = document.getElementById('navBackdrop');
   var menuToggle = document.getElementById('menuToggle');
@@ -65,4 +70,5 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+  } /* end init */
 })();

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>価格計算ツール｜マイクラ経済ワールド</title>
+<link rel="icon" href="assets/icons/emerald.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calc.css">
+</head>
+<body data-page="calc" data-depth="0">
+<div id="app">
+
+  <section class="hero hero--page">
+    <div class="hero-icons">
+      <i class="mc mc-xl" style="background-image:url(assets/icons/emerald.png)"></i>
+      <i class="mc mc-xl" style="background-image:url(assets/icons/chest.png)"></i>
+      <i class="mc mc-xl" style="background-image:url(assets/icons/diamond_pickaxe.png)"></i>
+    </div>
+    <div class="hero-kicker">CALCULATOR</div>
+    <h1><span class="hero-emoji">🧮</span>価格計算ツール</h1>
+    <p>誰から何を買うかを選ぶと、合計金額を自動で計算します。政府のエンチャント装備は専用モードで作れます。</p>
+  </section>
+
+  <div class="calc-layout">
+
+    <!-- 左：商品を選ぶ -->
+    <div class="calc-picker">
+      <h2 class="calc-h">① 取引相手を選ぶ</h2>
+
+      <!-- 入り口：政府 / 職業 -->
+      <div class="calc-source" id="calcSource">
+        <button class="src-btn is-active" data-src="gov"><span class="src-ico">🏛️</span>政府との取引</button>
+        <button class="src-btn" data-src="job"><span class="src-ico">🧑‍🌾</span>職業との取引</button>
+      </div>
+
+      <!-- 政府モード切替（買う / 売る / エンチャント）：政府選択中だけ表示し、入れ子で見せる -->
+      <div class="calc-submode" id="calcGovMode">
+        <span class="calc-submode__label">↳ 政府と何をする？</span>
+        <div class="calc-govmode">
+          <button class="mode-btn is-active" data-mode="buy">🛒 買う</button>
+          <button class="mode-btn" data-mode="sell">💰 売る</button>
+          <button class="mode-btn" data-mode="enchant">⚔️ エンチャント</button>
+        </div>
+      </div>
+
+      <!-- 職業選択（職業モード時のみ） -->
+      <label class="calc-field calc-submode" id="jobField" style="display:none;">
+        <span class="calc-submode__label">↳ どの職業？</span>
+        <select id="calcJob"></select>
+      </label>
+
+      <hr class="calc-sep">
+      <h2 class="calc-h">② 品目と数量を選ぶ</h2>
+
+      <!-- 通常モード：カテゴリ→品目→数量 -->
+      <div id="normalPicker">
+        <label class="calc-field" id="catField">
+          <span>カテゴリ</span>
+          <select id="calcCat"></select>
+        </label>
+        <label class="calc-field">
+          <span>品目</span>
+          <select id="calcItem"></select>
+        </label>
+        <label class="calc-field calc-field--qty">
+          <span>数量</span>
+          <input type="number" id="calcQty" min="1" step="1" value="1">
+        </label>
+        <div class="calc-preview" id="calcPreview"></div>
+        <button class="calc-add" id="calcAdd">🛒 カートに追加</button>
+      </div>
+
+      <!-- エンチャントモード：元装備＋複数エンチャント -->
+      <div id="enchantPicker" style="display:none;">
+        <label class="calc-field">
+          <span>元の装備</span>
+          <select id="enchBase"></select>
+        </label>
+        <div class="calc-ench">
+          <span class="calc-ench__label">付けるエンチャント（複数選択可）</span>
+          <div class="calc-ench__list" id="enchList"></div>
+        </div>
+        <div class="calc-preview" id="enchPreview"></div>
+        <button class="calc-add" id="enchAdd">⚔️ この装備をカートに追加</button>
+        <p class="calc-note">装備ごとに別々のエンチャントを付けたいときは、1つ作って追加 → 次の装備を作る、を繰り返してください。</p>
+      </div>
+    </div>
+
+    <!-- 右：カート -->
+    <div class="calc-cart">
+      <h2 class="calc-h">③ カート・合計</h2>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-total" id="cartTotal"></div>
+      <div class="cart-actions">
+        <button class="calc-clear" id="cartClear">カートを空にする</button>
+      </div>
+      <p class="calc-note" id="calcRangeNote"></p>
+    </div>
+
+  </div>
+
+</div>
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script src="js/calc.js"></script>
+</body>
+</html>

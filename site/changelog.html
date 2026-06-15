@@ -20,6 +20,31 @@
     <p>ルール改定の履歴です。新しい版が出るたびに、ここへ追記していきます。</p>
   </section>
 
+  <!-- v0.3.0 -->
+  <section class="section" id="v030">
+    <div class="section__head">
+      <span class="num">v0.3.0</span>
+      <h2><span class="ico">🛠️</span>職業ページの刷新・価格表・計算ツール</h2>
+    </div>
+    <div class="section__body">
+      <p style="color:var(--mc-text-dim);">2026-06-15</p>
+      <div class="callout callout--ok">
+        <i class="mc callout-ico" style="background-image:url(assets/icons/emerald.png)"></i>
+        <div>サイトの構造を大きく拡張し、価格の確認・計算がしやすくなりました。</div>
+      </div>
+      <h4>主な変更</h4>
+      <ul>
+        <li>職業の詳細を <strong>JSON駆動の汎用ページ</strong>（<code>job.html?id=…</code>）に統合。職業を追加するとページ・ナビが自動で増える</li>
+        <li><strong>政府を職業の一つ</strong>として詳細ページ化し、政府の価格・サービス（基本物資・装備・ダイヤ・修繕・納品クエスト・装置・土地・保険など）を集約</li>
+        <li>各職業の役割（説明文・主な取り扱い・主な仕事）を <code>prices.json</code> から生成。見出しを統一</li>
+        <li><strong>価格表・検索ページ</strong>（<code>prices.html</code>）を新設。全価格をキーワード・職業で絞り込み</li>
+        <li><strong>価格計算ツール</strong>（<code>calc.html</code>）を新設。政府との取引（買う／売る／エンチャント）と職業との取引をカート方式で合計計算。ダイヤ・鉄装備のエンチャント計算に対応</li>
+        <li>管理ページの強化：項目の並び替え（ドラッグ）・アイコン選択・カテゴリ折りたたみ・役割編集・職業/カテゴリの追加削除</li>
+        <li>セクション番号を「部.連番」（1.1／2.1／3.1）に整理。職業カードのレイアウト調整</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- v0.2.0 -->
   <section class="section" id="v020">
     <div class="section__head">

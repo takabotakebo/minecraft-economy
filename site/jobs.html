@@ -22,213 +22,43 @@
     </section>
     <!-- 5. 職業 -->
     <section class="section" id="sec5">
-      <div class="section__head"><span class="num">22</span><h2><span class="ico">🧑‍🌾</span>職業</h2></div>
+      <div class="section__head"><span class="num">2.1</span><h2><span class="ico">🧑‍🌾</span>職業</h2></div>
       <div class="section__body">
         <p>プレイヤーは自由に職業や役割を持つことができます。職業は固定ではありません。途中で変更・兼業しても構いません。</p>
-        <div class="job-grid">
-          <a href="#sec6-1" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/bricks.png)"></i><span class="job-name">材料屋</span></a>
-          <a href="#sec6-2" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/wheat.png)"></i><span class="job-name">農家</span></a>
-          <a href="#sec6-3" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/diamond_sword.png)"></i><span class="job-name">冒険家</span></a>
-          <a href="#sec6-4" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/bricks.png)"></i><span class="job-name">建築家</span></a>
-          <a href="#sec6-5" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/redstone.png)"></i><span class="job-name">装置技師</span></a>
-          <a href="#sec6-6" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/lead.png)"></i><span class="job-name">調教師</span></a>
-          <a href="#sec6-7" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/emerald_block.png)"></i><span class="job-name">運営・政府</span></a>
-        </div>
+        <div class="job-grid" id="jobCards"></div>
         <div class="callout callout--info">
           <span class="callout-ico">ℹ️</span>
           <div>鍛冶屋は政府と競合しやすいため、正式職業としては設けません。装備・道具・エンチャントは政府が管理します。</div>
         </div>
       </div>
     </section>
-    <!-- 6. 各職業の役割 -->
+    <!-- 6. 各職業の役割（prices.json から生成） -->
     <section class="section" id="sec6">
-      <div class="section__head"><span class="num">23</span><h2><span class="ico">🛠️</span>各職業の役割</h2></div>
+      <div class="section__head"><span class="num">2.2</span><h2><span class="ico">🛠️</span>各職業の役割</h2></div>
       <div class="section__body">
-
-        <h3 id="sec6-1"><i class="mc" style="background-image:url(assets/icons/bricks.png)"></i> 6.1 材料屋</h3>
-        <p>政府が常備しない資材や、こだわり建築に必要な素材を扱う職業です。特殊な建材、大量の装飾素材などを販売・納品します。</p>
-        <a class="job-detail-link" href="jobs/material.html"><i class="mc" style="background-image:url(assets/icons/bricks.png)"></i>材料屋の相場ページへ →</a>
-        <h4>主な商品</h4>
-        <div class="tags">
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/glass.png)"></i>色付きガラス</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/white_wool.png)"></i>色付き羊毛</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/white_concrete.png)"></i>コンクリート</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/white_terracotta.png)"></i>テラコッタ</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bricks.png)"></i>レンガ</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/clay.png)"></i>粘土</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/sandstone.png)"></i>砂岩</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/tuff.png)"></i>凝灰岩</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/calcite.png)"></i>方解石</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/copper_block.png)"></i>銅ブロック</span>
-        </div>
-        <h4>サービス</h4>
-        <ul>
-          <li>在庫販売 / 予約販売 / 大量注文 / 配達</li>
-          <li>加工込み販売 / 建築家向けの卸売</li>
-          <li>冒険家から仕入れた特殊素材の再販売</li>
-        </ul>
-
-        <h3 id="sec6-2"><i class="mc" style="background-image:url(assets/icons/wheat.png)"></i> 6.2 農家</h3>
-        <p>食料・畜産・植物系素材を扱う職業です。政府から骨粉を購入し、生産に使うことができます。</p>
-        <a class="job-detail-link" href="jobs/farmer.html"><i class="mc" style="background-image:url(assets/icons/wheat.png)"></i>農家の相場ページへ →</a>
-        <h4>主な商品</h4>
-        <div class="tags">
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/wheat.png)"></i>小麦</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bread.png)"></i>パン</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/potato.png)"></i>ジャガイモ</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/carrot.png)"></i>ニンジン</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/cooked_beef.png)"></i>焼き肉</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/leather.png)"></i>革</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/white_wool.png)"></i>羊毛</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/egg.png)"></i>卵</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/milk_bucket.png)"></i>牛乳</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/sugar_cane.png)"></i>サトウキビ</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/paper.png)"></i>紙</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/honey_bottle.png)"></i>蜂蜜</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/bamboo.png)"></i>竹</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/cocoa_beans.png)"></i>カカオ豆</span>
-        </div>
-        <div class="callout callout--info">
-          <i class="mc callout-ico" style="background-image:url(assets/icons/baked_potato.png)"></i>
-          <div>政府は最低保証食料として<strong>ベイクドポテトのみ</strong>提供します。高品質な食料・大量食料・冒険用食料セットは農家の商品です。</div>
-        </div>
-
-        <h3 id="sec6-3"><i class="mc" style="background-image:url(assets/icons/diamond_sword.png)"></i> 6.3 冒険家</h3>
-        <p>危険地帯の探索・レア素材回収・討伐・護衛を行う職業です。仕入れた素材は自分で販売しても、材料屋に卸して再販売してもらっても構いません。</p>
-        <a class="job-detail-link" href="jobs/adventurer.html"><i class="mc" style="background-image:url(assets/icons/diamond_sword.png)"></i>冒険家の相場ページへ →</a>
-        <h4><i class="mc" style="background-image:url(assets/icons/netherrack.png)"></i> ネザー担当</h4>
-        <div class="tags">
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/nether_wart.png)"></i>ネザーウォート</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/blaze_rod.png)"></i>ブレイズロッド</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/quartz.png)"></i>クォーツ</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/glowstone.png)"></i>グロウストーン</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/ancient_debris.png)"></i>古代の残骸</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/blackstone.png)"></i>ブラックストーン</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/basalt.png)"></i>玄武岩</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/soul_sand.png)"></i>ソウルサンド</span>
-        </div>
-        <h4><i class="mc" style="background-image:url(assets/icons/iron_pickaxe.png)"></i> 鉱石・洞窟担当</h4>
-        <div class="tags">
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/iron_ingot.png)"></i>鉄</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/copper_block.png)"></i>銅</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/redstone.png)"></i>レッドストーン</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/lapis_lazuli.png)"></i>ラピスラズリ</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/diamond.png)"></i>ダイヤ</span>
-        </div>
-        <h4>探索・討伐担当</h4>
-        <ul>
-          <li>構造物探索 / 海底神殿 / 森の洋館 / 古代都市</li>
-          <li>襲撃対応 / 迷子救助 / 危険地帯の護衛 / レアアイテム回収</li>
-        </ul>
-
-        <h3 id="sec6-4"><i class="mc" style="background-image:url(assets/icons/oak_planks.png)"></i> 6.4 建築家</h3>
-        <p>住宅・店舗・公共施設・道路・橋・内装などを作る職業です。</p>
-        <a class="job-detail-link" href="jobs/builder.html"><i class="mc" style="background-image:url(assets/icons/oak_planks.png)"></i>建築家の相場ページへ →</a>
-        <ul>
-          <li>個人宅 / 店舗 / 公共施設の建築</li>
-          <li>道路整備 / 橋の建設 / 倉庫建築 / 内装 / 区画整理 / 街並み整備</li>
-          <li>建築相談 / 設計図作成</li>
-        </ul>
-        <p>公共建築は政府から発注される場合があります。個人宅や店舗の建築は、プレイヤー同士の取引で依頼してください。</p>
-
-        <h3 id="sec6-5"><i class="mc" style="background-image:url(assets/icons/redstone.png)"></i> 6.5 装置技師</h3>
-        <p>レッドストーン装置・自動装置・公共設備を作る職業です。</p>
-        <a class="job-detail-link" href="jobs/engineer.html"><i class="mc" style="background-image:url(assets/icons/redstone.png)"></i>装置技師の相場ページへ →</a>
-        <div class="tags">
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/furnace.png)"></i>自動かまど</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/hopper.png)"></i>仕分け倉庫</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/wheat.png)"></i>自動農場</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/enchanting_table.png)"></i>公共経験値施設</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/piston.png)"></i>隠し扉</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/redstone_lamp.png)"></i>照明装置</span>
-        </div>
-        <div class="callout callout--info">
-          <span class="callout-ico">ℹ️</span>
-          <div>大型装置や経済に影響する装置は、政府が買い取り、公共設備として管理します。</div>
-        </div>
-
-        <h3 id="sec6-6"><i class="mc" style="background-image:url(assets/icons/lead.png)"></i> 6.6 調教師</h3>
-        <p>ペット・護衛動物・移動用動物を整備する職業です。犬・猫・馬などを捕まえ、育成・名付け・引き渡し・繁殖・護衛用の整備を行います。</p>
-        <a class="job-detail-link" href="jobs/tamer.html"><i class="mc" style="background-image:url(assets/icons/lead.png)"></i>調教師の相場ページへ →</a>
-        <h4>扱う動物</h4>
-        <div class="tags">
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/wolf_spawn_egg.png)"></i>犬</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/cat_spawn_egg.png)"></i>猫</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/horse_spawn_egg.png)"></i>馬</span>
-          <span class="tag"><i class="mc" style="background-image:url(assets/icons/saddle.png)"></i>ロバ・ラバ</span>
-        </div>
-        <p>調教師は農家・冒険家・建築家と相性が良い職業です。農家から餌を買い、冒険家に護衛犬を売り、建築家に馬小屋やペット施設を依頼できます。</p>
-
-        <h3 id="sec6-7"><i class="mc" style="background-image:url(assets/icons/emerald_block.png)"></i> 6.7 運営・政府</h3>
-        <p>ワールド全体の管理と経済調整を担当します。</p>
-        <ul>
-          <li>通貨管理 / 税金回収 / 国庫管理 / 公共物管理</li>
-          <li>クエスト発行 / 公共事業の発注</li>
-          <li>エンチャント・ダイヤ装備・道具の販売</li>
-          <li>装置の買い取りと管理 / 価格調整 / インフレ・デフレ調整</li>
-          <li>ルール違反への対応 / プレイヤーの面倒な部分の削減</li>
-        </ul>
+        <div id="jobRoles"></div>
       </div>
     </section>
     <!-- 11. 相場設計の基準 -->
     <section class="section" id="sec11">
-      <div class="section__head"><span class="num">24</span><h2><span class="ico">⏱️</span>相場設計の基準</h2></div>
+      <div class="section__head"><span class="num">2.3</span><h2><span class="ico">⏱️</span>相場設計の基準</h2></div>
       <div class="section__body">
         <p>基本労働は、<strong>1時間あたり8〜12エメラルド程度</strong>を目安にします。危険な探索・専門技術・建築・装置制作などは高めに設定します。</p>
         <div data-price-table="labor_guide"></div>
       </div>
     </section>
-    <!-- 12. 納品クエスト価格 -->
-    <section class="section" id="sec12">
-      <div class="section__head"><span class="num">25</span><h2><span class="ico">📦</span>政府への納品クエスト価格</h2></div>
-      <div class="section__body">
-        <p>政府への納品は常設買取ではなく、必要な時にクエストとして募集します。素材系は1時間ほどの作業で8〜12エメラルド程度になるよう調整します。</p>
-        <div data-price-table="supply_quest"></div>
-        <p>政府在庫が十分にある場合は買取を停止します。報酬は必要度・危険度・不足状況に応じて一時的に上げる場合があります。</p>
-      </div>
-    </section>
-    <!-- 28. ペット・動物 -->
-    <section class="section" id="sec28">
-      <div class="section__head"><span class="num">32</span><h2><span class="ico">🐴</span>ペット・動物の扱い</h2></div>
-      <div class="section__body">
-        <p>ペットや移動用動物は調教師が管理・販売できます。政府は原則としてペット販売を行いません（イベント・公共馬小屋などで必要な場合は調教師に依頼）。</p>
-        <h4>ペット関連ルール</h4>
-        <ul>
-          <li>他人のペットを勝手に連れ出さない / 攻撃しない</li>
-          <li>売買する場合は所有者を明確にする</li>
-          <li>名札つきのペットは所有物として扱う</li>
-          <li>護衛犬の死亡リスクは利用者も負担する</li>
-          <li>公共馬小屋に預ける場合は管理料を払う</li>
-        </ul>
-      </div>
-    </section>
-    <!-- 29. プレイヤー間取引 -->
+    <!-- 27. プレイヤー間取引 -->
     <section class="section" id="sec29">
-      <div class="section__head"><span class="num">33</span><h2><span class="ico">🤝</span>プレイヤー間取引</h2></div>
+      <div class="section__head"><span class="num">2.4</span><h2><span class="ico">🤝</span>プレイヤー間取引</h2></div>
       <div class="section__body">
         <p>プレイヤー同士の取引価格は<strong>自由</strong>です。政府価格はあくまで基準であり、プレイヤー間の価格を縛るものではありません。</p>
         <p>値段交渉、まとめ売り、予約販売、配達、月額契約なども自由です。</p>
-      </div>
-    </section>
-    <!-- 30. 店舗 -->
-    <section class="section" id="sec30">
-      <div class="section__head"><span class="num">34</span><h2><span class="ico">🏪</span>店舗</h2></div>
-      <div class="section__body">
-        <p>プレイヤーは自由に店を作ることができます。店にはできるだけ以下を掲示してください。</p>
-        <div class="tags">
-          <span class="tag">店名</span><span class="tag">店主名</span><span class="tag">商品</span>
-          <span class="tag">価格</span><span class="tag">支払い場所</span><span class="tag">在庫場所</span>
-          <span class="tag">依頼受付の可否</span>
-        </div>
-        <div class="callout callout--warn">
-          <span class="callout-ico">⚠️</span>
-          <div>盗難や誤解を防ぐため、商品チェストと私物チェストは分けてください。</div>
-        </div>
       </div>
     </section>
 </div>
 <script src="js/nav.js"></script>
 <script src="js/main.js"></script>
 <script src="js/price-table.js"></script>
+<script src="js/jobs-roles.js"></script>
 </body>
 </html>

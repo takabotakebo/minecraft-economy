@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>マイクラ経済ワールド｜運用ルール v0.1.0</title>
+<title>マイクラ経済ワールド｜運用ルール</title>
 <meta name="description" content="マインクラフト8人ワールドの経済・職業・政府運用ルール">
 <link rel="icon" href="assets/icons/emerald.png">
 <link rel="stylesheet" href="css/style.css">
@@ -42,7 +42,7 @@
       <span class="home-card__emoji">🧑‍🌾</span>
       <span class="home-card__no">PART 2</span>
       <span class="home-card__title">各職業の詳細</span>
-      <span class="home-card__desc">7つの職業の役割と相場。自分の仕事を見つけよう。</span>
+      <span class="home-card__desc">各職業の役割と相場。自分の仕事を見つけよう。</span>
       <span class="home-card__go">読む →</span>
     </a>
     <a class="home-card home-card--p3" href="summary.html">
@@ -54,6 +54,16 @@
     </a>
   </div>
 
+  <!-- 価格をすぐ探したい人向けの導線 -->
+  <a class="price-cta" href="prices.html">
+    <span class="price-cta__icon">🔎</span>
+    <span class="price-cta__body">
+      <span class="price-cta__title">値段をすぐ知りたい？ 価格表・検索へ</span>
+      <span class="price-cta__desc">ダイヤ装備・トラップ・素材など、全部の価格をまとめて検索できます。</span>
+    </span>
+    <span class="price-cta__go">開く →</span>
+  </a>
+
   <!-- 職業ショートカット -->
   <div class="part-banner">
     <div class="part-kicker">JOBS</div>
@@ -61,14 +71,7 @@
     <p class="part-desc">各職業の詳しい相場ページへ直接ジャンプできます。</p>
   </div>
 
-  <div class="job-grid">
-    <a href="jobs/material.html" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/bricks.png)"></i><span class="job-name">材料屋</span></a>
-    <a href="jobs/farmer.html" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/wheat.png)"></i><span class="job-name">農家</span></a>
-    <a href="jobs/adventurer.html" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/diamond_sword.png)"></i><span class="job-name">冒険家</span></a>
-    <a href="jobs/builder.html" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/oak_planks.png)"></i><span class="job-name">建築家</span></a>
-    <a href="jobs/engineer.html" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/redstone.png)"></i><span class="job-name">装置技師</span></a>
-    <a href="jobs/tamer.html" class="job-card"><i class="mc job-ico" style="background-image:url(assets/icons/lead.png)"></i><span class="job-name">調教師</span></a>
-  </div>
+  <div class="job-grid" id="homeJobCards"></div>
 
   <!-- このワールドの目的（抜粋） -->
   <section class="section" id="about">
@@ -86,5 +89,6 @@
 <script src="js/nav.js"></script>
 <script src="js/main.js"></script>
 <script src="js/price-table.js"></script>
+<script src="js/jobs-roles.js"></script>
 </body>
 </html>

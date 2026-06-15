@@ -47,6 +47,8 @@
   <div class="admin-toolbar">
     <button id="saveBtn" class="admin-btn admin-btn--primary">💾 保存</button>
     <button id="addJobBtn" class="admin-btn">👤 職業を追加</button>
+    <button id="collapseAllBtn" class="admin-btn">▶ 全カテゴリたたむ</button>
+    <button id="expandAllBtn" class="admin-btn">▼ 全カテゴリ開く</button>
     <button id="downloadBtn" class="admin-btn">⬇ ダウンロード保存</button>
     <input type="search" id="filter" class="admin-filter" placeholder="🔍 名前・職業で絞り込み…">
     <span id="status" class="admin-status"></span>
@@ -64,6 +66,19 @@
   <!-- 職業ごとのブロックをここに描画 -->
   <div id="jobsRoot"></div>
 
+</div>
+
+<!-- アイコンピッカー モーダル -->
+<div class="icon-modal" id="iconModal">
+  <div class="icon-modal__panel">
+    <div class="icon-modal__head">
+      <h3>アイコンを選択</h3>
+      <input type="search" id="iconSearch" class="icon-modal__search" placeholder="🔍 アイコン名で検索（例: emerald, wheat）">
+      <button class="icon-modal__close icon-modal__clear" id="iconClear">アイコンなし</button>
+      <button class="icon-modal__close" id="iconClose">✕</button>
+    </div>
+    <div class="icon-modal__grid" id="iconGrid"></div>
+  </div>
 </div>
 
 <script src="js/admin.js"></script>

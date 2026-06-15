@@ -98,7 +98,11 @@
       var id = el.getAttribute('data-price-table');
       var cat = info.idx[id];
       if (!cat) {
-        el.innerHTML = '<p class="price-error">⚠ 価格データ「' + esc(id) + '」が見つかりません。</p>';
+        // JSONに無いカテゴリ（削除済みなど）はマーカーごと撤去。
+        // 直前が見出し(h3/h4)ならそれも一緒に消して空見出しを残さない。
+        var prev = el.previousElementSibling;
+        if (prev && /^H[34]$/.test(prev.tagName)) prev.remove();
+        el.remove();
         return;
       }
       var html = '';

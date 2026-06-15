@@ -1,0 +1,180 @@
+/* ============================================================
+   価格計算ツール 専用スタイル
+   ============================================================ */
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.calc-picker, .calc-cart {
+  background: var(--mc-bg-panel);
+  border: 3px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  padding: 16px 18px;
+}
+.calc-cart { position: sticky; top: 88px; }
+
+.calc-h {
+  font-size: 1.1rem;
+  color: var(--mc-emerald);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--mc-border-dark);
+}
+
+/* 入り口・モード切替ボタン */
+.calc-source, .calc-govmode {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.src-btn, .mode-btn {
+  flex: 1;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: bold;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 10px 8px;
+  cursor: pointer;
+}
+.src-btn:hover, .mode-btn:hover { background: var(--mc-bg-panel-light); }
+.src-btn.is-active {
+  background: var(--mc-emerald-dark);
+  color: #fff;
+  border-color: var(--mc-emerald);
+}
+.mode-btn.is-active {
+  background: var(--mc-bg-panel-light);
+  color: var(--mc-gold);
+  border-color: var(--mc-gold);
+}
+.calc-sep { border: none; border-top: 2px solid var(--mc-border-dark); margin: 16px 0; }
+
+/* 取引相手の下に入れ子で出るモード選択 */
+.calc-submode {
+  margin: 0 0 12px 14px;
+  padding: 10px 0 0 12px;
+  border-left: 3px solid var(--mc-emerald-dark);
+}
+.calc-submode__label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--mc-text-dim);
+  margin-bottom: 6px;
+}
+.calc-govmode { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0; }
+.calc-govmode .mode-btn { flex: 1; min-width: 88px; }
+
+/* 取引相手ボタンは大きく目立たせる */
+.src-btn { padding: 12px 8px; font-size: 1rem; }
+.src-ico { margin-right: 6px; }
+
+.calc-field { display: block; margin-bottom: 12px; }
+.calc-field > span { display: block; font-size: 0.85rem; color: var(--mc-text-dim); margin-bottom: 5px; }
+.calc-field select,
+.calc-field input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 9px 10px;
+}
+.calc-field select:focus,
+.calc-field input:focus { outline: none; border-color: var(--mc-emerald); }
+.calc-field--qty input { width: 120px; }
+
+/* エンチャント選択 */
+.calc-ench {
+  margin: 4px 0 12px;
+  padding: 10px 12px;
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+}
+.calc-ench__label { display: block; font-size: 0.85rem; color: var(--mc-gold); margin-bottom: 8px; }
+.calc-ench__list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
+.ench-chk { display: flex; align-items: center; gap: 6px; font-size: 0.88rem; cursor: pointer; }
+.ench-chk input { width: auto; }
+.ench-chk small { color: var(--mc-emerald); }
+
+/* プレビュー */
+.calc-preview {
+  min-height: 1.6em;
+  margin: 10px 0 14px;
+  padding: 10px 12px;
+  background: var(--mc-bg);
+  border-left: 4px solid var(--mc-emerald);
+  font-size: 0.95rem;
+}
+.calc-amount, .calc-preview strong { color: var(--mc-emerald); }
+
+.calc-add {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--mc-bg);
+  background: var(--mc-emerald);
+  border: 2px solid var(--mc-emerald-dark);
+  padding: 12px;
+  cursor: pointer;
+}
+.calc-add:hover { background: var(--mc-diamond); }
+
+/* カート */
+.cart-items { min-height: 60px; }
+.cart-empty { color: var(--mc-text-dim); font-size: 0.9rem; padding: 10px 0; }
+.cart-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto auto 32px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--mc-border-dark);
+}
+.cart-row__name { font-size: 0.95rem; color: #fff; display: flex; flex-direction: column; }
+.cart-from { font-size: 0.72rem; color: var(--mc-text-dim); display: flex; align-items: center; gap: 3px; }
+.cart-from .mc { width: 1em; height: 1em; }
+.cart-ench { color: var(--mc-gold); font-size: 0.75rem; }
+.cart-row__qty { color: var(--mc-text-dim); font-size: 0.9rem; }
+.cart-row__amount { color: var(--mc-emerald); font-weight: bold; white-space: nowrap; }
+.cart-row__del {
+  background: var(--mc-bg); color: #fff; border: 2px solid var(--mc-border-dark);
+  cursor: pointer; padding: 2px 4px; font-size: 0.85rem;
+}
+.cart-row__del:hover { background: var(--mc-redstone); }
+
+.cart-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-emerald-dark);
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #fff;
+}
+.cart-total__amount { font-size: 1.5rem; color: var(--mc-emerald); }
+
+.cart-actions { margin-top: 10px; }
+.calc-clear {
+  font-family: inherit; font-size: 0.85rem;
+  color: var(--mc-text-dim); background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark); padding: 7px 12px; cursor: pointer;
+}
+.calc-clear:hover { color: #fff; background: var(--mc-bg-panel-light); }
+.calc-note { font-size: 0.8rem; color: var(--mc-text-dim); margin-top: 10px; }
+
+@media (max-width: 880px) {
+  .calc-layout { grid-template-columns: 1fr; }
+  .calc-cart { position: static; }
+  .calc-ench__list { grid-template-columns: 1fr; }
+}

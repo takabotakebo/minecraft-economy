@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>価格表・検索｜マイクラ経済ワールド</title>
+<link rel="icon" href="assets/icons/emerald.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="prices" data-depth="0">
+<div id="app">
+
+  <section class="hero hero--page">
+    <div class="hero-icons">
+      <i class="mc mc-xl" style="background-image:url(assets/icons/emerald.png)"></i>
+      <i class="mc mc-xl" style="background-image:url(assets/icons/diamond.png)"></i>
+      <i class="mc mc-xl" style="background-image:url(assets/icons/gold_ingot.png)"></i>
+    </div>
+    <div class="hero-kicker">PRICE LIST</div>
+    <h1><span class="hero-emoji">🔎</span>価格表・検索</h1>
+    <p>このワールドの全価格をまとめて検索できます。品目名で絞り込んだり、職業・カテゴリで切り替えられます。</p>
+  </section>
+
+  <!-- 検索ツールバー -->
+  <div class="price-search" id="priceSearch">
+    <input type="search" id="pq" class="price-search__input" placeholder="🔍 品目名で検索（例: ダイヤ, 修繕, トラップ）">
+    <select id="pjob" class="price-search__select" aria-label="職業で絞り込み"></select>
+    <span id="pcount" class="price-search__count"></span>
+  </div>
+
+  <div id="priceResults"></div>
+
+</div>
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script src="js/prices-page.js"></script>
+</body>
+</html>

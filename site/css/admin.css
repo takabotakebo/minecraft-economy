@@ -176,6 +176,8 @@ tr.hidden { display: none; }
 }
 .adm-job__id { font-size: 0.8rem; color: #d8e8c8; opacity: 0.8; }
 .adm-job__head .addCat { margin-left: auto; }
+.adm-job__head .delJob { color: #ffd0d0; background: rgba(0,0,0,0.25); }
+.adm-job__head .delJob:hover { background: var(--mc-redstone); color: #fff; }
 
 /* ---- カテゴリブロック ---- */
 .adm-cat { padding: 10px 14px 16px; border-top: 1px solid var(--mc-border-dark); }
@@ -206,6 +208,194 @@ tr.hidden { display: none; }
 }
 .adm-cat__head .delCat { color: var(--mc-redstone); }
 .adm-cat__head .delCat:hover { background: var(--mc-redstone); color: #fff; }
+
+/* カテゴリ折りたたみ */
+.cat-toggle {
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--mc-text);
+  background: var(--mc-bg-panel-light);
+  border: 2px solid var(--mc-border-dark);
+  width: 28px; height: 28px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.cat-toggle:hover { background: var(--mc-emerald-dark); color: #fff; }
+.adm-cat__count {
+  font-size: 0.78rem;
+  color: var(--mc-text-dim);
+  background: var(--mc-bg);
+  border: 1px solid var(--mc-border-dark);
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+.adm-cat.collapsed .adm-cat__body { display: none; }
+.adm-cat.collapsed .adm-cat__head { margin-bottom: 0; }
+
+/* ---- ドラッグ＆ドロップ並び替え ---- */
+.drag-handle {
+  cursor: grab;
+  color: var(--mc-text-dim);
+  font-size: 1.1rem;
+  text-align: center;
+  user-select: none;
+}
+.drag-handle:active { cursor: grabbing; }
+tr.dragging { opacity: 0.4; }
+tr.drop-before td { box-shadow: inset 0 3px 0 var(--mc-emerald); }
+tr.drop-after td { box-shadow: inset 0 -3px 0 var(--mc-emerald); }
+
+/* 職業ブロックの並び替え */
+.job-drag-handle {
+  cursor: grab;
+  color: #d8e8c8;
+  font-size: 1.2rem;
+  padding: 0 4px;
+  user-select: none;
+}
+.job-drag-handle:active { cursor: grabbing; }
+.adm-job.dragging { opacity: 0.5; }
+.adm-job.drop-before { box-shadow: 0 -4px 0 var(--mc-gold); }
+.adm-job.drop-after { box-shadow: 0 4px 0 var(--mc-gold); }
+.adm-job__head[draggable="true"] { cursor: grab; }
+
+/* アイコンセル（クリックでピッカー） */
+.icon-cell {
+  cursor: pointer;
+  text-align: center;
+}
+.icon-cell:hover { background: var(--mc-bg-panel-light); }
+.icon-cell .mc { pointer-events: none; }
+.icon-empty {
+  display: inline-block;
+  width: 1.4em; height: 1.4em;
+  border: 2px dashed var(--mc-border-light);
+  color: var(--mc-text-dim);
+  font-size: 0.8rem;
+  line-height: 1.4em;
+}
+
+/* ---- アイコンピッカー（モーダル） ---- */
+.icon-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.icon-modal.open { display: flex; }
+.icon-modal__panel {
+  width: min(720px, 92vw);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--mc-bg-panel);
+  border: 3px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+}
+.icon-modal__head {
+  display: flex; gap: 10px; align-items: center;
+  padding: 12px 14px;
+  border-bottom: 3px solid var(--mc-border-dark);
+}
+.icon-modal__head h3 { color: #fff; font-size: 1.05rem; }
+.icon-modal__search {
+  flex: 1;
+  font-family: inherit; font-size: 0.95rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 8px 12px;
+}
+.icon-modal__close {
+  background: var(--mc-bg); color: #fff;
+  border: 2px solid var(--mc-border-dark);
+  font-size: 1.1rem; padding: 6px 12px; cursor: pointer;
+}
+.icon-modal__grid {
+  overflow-y: auto;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+  gap: 6px;
+}
+.icon-pick {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 6px 2px;
+  background: var(--mc-bg);
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.icon-pick:hover { border-color: var(--mc-emerald); background: var(--mc-bg-panel-light); }
+.icon-pick .mc { width: 2em; height: 2em; }
+.icon-pick small {
+  font-size: 0.6rem; color: var(--mc-text-dim);
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.icon-modal__none { padding: 20px; color: var(--mc-text-dim); }
+.icon-modal__clear {
+  margin-left: auto;
+}
+
+/* ---- 役割（説明文・箇条書き）編集 ---- */
+.adm-role {
+  margin: 0 14px 12px;
+  border: 2px solid var(--mc-border-dark);
+  background: rgba(0,0,0,0.18);
+}
+.adm-role > summary {
+  cursor: pointer;
+  padding: 8px 12px;
+  color: var(--mc-diamond);
+  font-weight: bold;
+  user-select: none;
+}
+.adm-role > summary:hover { background: var(--mc-bg-panel-light); }
+.adm-role__body { padding: 10px 12px 14px; }
+.adm-role__field { display: block; margin-bottom: 10px; }
+.adm-role__field > span { display: block; font-size: 0.82rem; color: var(--mc-text-dim); margin-bottom: 4px; }
+.adm-role-desc {
+  width: 100%;
+  font-family: inherit; font-size: 0.92rem;
+  color: var(--mc-text);
+  background: var(--mc-bg);
+  border: 2px solid var(--mc-border-dark);
+  padding: 8px 10px;
+  resize: vertical;
+}
+.adm-rolesec {
+  border: 1px solid var(--mc-border-dark);
+  background: var(--mc-bg);
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+.adm-rolesec__head { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
+.rolesec-head { min-width: 160px; flex: 1; }
+.rolesec-type {
+  font-family: inherit; font-size: 0.82rem;
+  color: var(--mc-text); background: var(--mc-bg-panel);
+  border: 2px solid var(--mc-border-dark); padding: 5px 8px;
+}
+.adm-rolesec__head .delRoleSec { color: var(--mc-redstone); }
+.adm-roleitem { display: flex; gap: 6px; align-items: center; margin: 4px 0; }
+.roleitem-icon { cursor: pointer; width: 1.8em; text-align: center; }
+.roleitem-icon:hover { background: var(--mc-bg-panel-light); }
+.rolei-text { flex: 1; }
+.adm-role__secs + .addRoleSec { margin-top: 4px; }
+
+/* ---- 表示プレビュー ---- */
+.adm-preview {
+  margin: 4px 0 12px;
+  border: 2px dashed var(--mc-border-light);
+  padding: 8px 10px;
+  background: rgba(0,0,0,0.2);
+}
+.adm-preview__label {
+  font-size: 0.75rem; color: var(--mc-diamond);
+  margin-bottom: 6px; letter-spacing: 0.05em;
+}
 
 /* カテゴリの区切り見出し行 */
 tr.cat-head td {

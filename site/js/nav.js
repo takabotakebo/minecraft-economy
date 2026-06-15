@@ -11,35 +11,42 @@
   var current = body.getAttribute('data-page') || '';
   var P = depth > 0 ? '../'.repeat(depth) : '';   // ルートへの相対プレフィックス
 
+  /* 職業ページ(job.html?id=xxx)では、現在の職業IDを見る */
+  var currentJobId = new URLSearchParams(location.search).get('id') || '';
+
   /* ---- ローカル判定（localhost / 127.0.0.1 / file: のときだけ管理機能を出す） ---- */
   var host = location.hostname;
   var IS_LOCAL = (host === 'localhost' || host === '127.0.0.1' ||
                   host === '' || location.protocol === 'file:');
 
   /* ---- サイト構造定義 ---- */
-  var VERSION = 'v0.2.0';
-  var JOBS = [
-    { key: 'job-material',   href: 'jobs/material.html',   emoji: '🧱', label: '材料屋' },
-    { key: 'job-farmer',     href: 'jobs/farmer.html',     emoji: '🍞', label: '農家' },
-    { key: 'job-adventurer', href: 'jobs/adventurer.html', emoji: '🔥', label: '冒険家' },
-    { key: 'job-builder',    href: 'jobs/builder.html',    emoji: '🏠', label: '建築家' },
-    { key: 'job-engineer',   href: 'jobs/engineer.html',   emoji: '⚙️', label: '装置技師' },
-    { key: 'job-tamer',      href: 'jobs/tamer.html',      emoji: '🐺', label: '調教師' }
-  ];
-  var NAV = [
-    { key: 'home',    href: 'index.html',     emoji: '🏠', label: 'ホーム' },
-    { key: 'system',  href: 'system.html',    emoji: '🏛️', label: '国のシステム' },
-    { key: 'jobs',    href: 'jobs.html',      emoji: '🧑‍🌾', label: '各職業', children: JOBS },
-    { key: 'summary', href: 'summary.html',   emoji: '🌟', label: 'まとめ' },
-    { key: 'changelog', href: 'changelog.html', emoji: '📝', label: '変更履歴' }
-  ];
+  var VERSION = 'v0.3.0';
+  // 職業ナビに出さない内部グループ
+  var HIDDEN_JOBS = { common: 1 };
+  // job.html へ出す職業リスト（prices.json から動的生成）
+  var JOBS = [];   // { key:'job-<id>', id, href:'job.html?id=<id>', emoji, label }
+  var NAV = [];
+
+  function buildNavModel() {
+    NAV = [
+      { key: 'home',    href: 'index.html',   emoji: '🏠', label: 'ホーム' },
+      { key: 'system',  href: 'system.html',  emoji: '🏛️', label: '国のシステム' },
+      { key: 'jobs',    href: 'jobs.html',    emoji: '🧑‍🌾', label: '各職業', children: JOBS },
+      { key: 'prices',  href: 'prices.html',  emoji: '🔎', label: '価格表' },
+      { key: 'calc',    href: 'calc.html',    emoji: '🧮', label: '計算ツール' },
+      { key: 'summary', href: 'summary.html', emoji: '🌟', label: 'まとめ' },
+      { key: 'changelog', href: 'changelog.html', emoji: '📝', label: '変更履歴' }
+    ];
+  }
 
   function abs(href) { return P + href; }
   function isCurrent(key) { return key === current; }
+  // 職業の子リンクが現在ページか（job.html?id=xxx）
+  function isCurrentJob(jobId) { return current === 'jobs' && currentJobId === jobId; }
   /* 子ページにいる時は親(jobs)もアクティブ扱い */
   function isActiveTop(item) {
     if (isCurrent(item.key)) return true;
-    if (item.children) return item.children.some(function (c) { return isCurrent(c.key); });
+    if (item.children) return item.children.some(function (c) { return isCurrentJob(c.id); });
     return false;
   }
 
@@ -49,7 +56,7 @@
       var active = isActiveTop(item) ? ' active' : '';
       if (item.children) {
         var sub = item.children.map(function (c) {
-          var ca = isCurrent(c.key) ? ' active' : '';
+          var ca = isCurrentJob(c.id) ? ' active' : '';
           return '<a class="dropdown__item' + ca + '" href="' + abs(c.href) + '">' +
                  '<span class="ico">' + c.emoji + '</span>' + c.label + '</a>';
         }).join('');
@@ -101,7 +108,7 @@
       if (item.children && isActiveTop(item)) {
         // 子（職業）を展開
         var subs = item.children.map(function (c) {
-          var ca = isCurrent(c.key) ? ' active' : '';
+          var ca = isCurrentJob(c.id) ? ' active' : '';
           return '<li><a class="sidenav__sub' + ca + '" href="' + abs(c.href) + '">' +
                  '<span class="ico">' + c.emoji + '</span>' + c.label + '</a></li>';
         }).join('');
@@ -123,7 +130,8 @@
 
   function buildPageToc() {
     var secs = document.querySelectorAll('#app > .section');
-    if (!secs.length) return '';
+    // セクションが1つ以下なら目次は出さない（トップなど）
+    if (secs.length < 2) return '';
     var items = Array.prototype.map.call(secs, function (s) {
       var head = s.querySelector('.section__head h2');
       var ico = head ? (head.querySelector('.ico') ? head.querySelector('.ico').textContent : '') : '';
@@ -148,7 +156,40 @@
       '</footer>';
   }
 
+  /* ---- 職業リストを prices.json から取得して NAV を組み立て、その後DOM構築 ---- */
+  // 取得失敗時のフォールバック（既定6職業）
+  var FALLBACK_JOBS = [
+    { id: 'material', emoji: '🧱', label: '材料屋' },
+    { id: 'farmer', emoji: '🍞', label: '農家' },
+    { id: 'adventurer', emoji: '🔥', label: '冒険家' },
+    { id: 'builder', emoji: '🏠', label: '建築家' },
+    { id: 'engineer', emoji: '⚙️', label: '装置技師' },
+    { id: 'tamer', emoji: '🐺', label: '調教師' }
+  ];
+
+  function setJobs(list) {
+    JOBS.length = 0;
+    list.forEach(function (j) {
+      if (HIDDEN_JOBS[j.id]) return;
+      JOBS.push({
+        key: 'job-' + j.id, id: j.id,
+        href: 'job.html?id=' + encodeURIComponent(j.id),
+        emoji: j.emoji || '📦', label: j.label || j.id
+      });
+    });
+    buildNavModel();
+  }
+
+  fetch(P + 'data/prices.json?_=' + Date.now())
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      setJobs(data && data.jobs ? data.jobs : FALLBACK_JOBS);
+    })
+    .catch(function () { setJobs(FALLBACK_JOBS); })
+    .then(mount);
+
   /* ---- DOM 構築 ---- */
+  function mount() {
   var app = document.getElementById('app');
 
   // ヘッダーを body 先頭へ
@@ -195,4 +236,8 @@
       }
     });
   });
+
+  // nav構築完了を他スクリプト(main.js/job-page.js)へ通知
+  document.dispatchEvent(new CustomEvent('nav:ready'));
+  } /* end mount */
 })();
