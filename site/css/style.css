@@ -196,6 +196,20 @@ body {
   margin-bottom: 4px;
 }
 
+/* シーズン切替（ロゴ右のドロップダウン） */
+.season-switch { position: relative; flex-shrink: 0; }
+.season-switch__btn {
+  background: var(--mc-bg-panel);
+  border: 2px solid var(--mc-border-light);
+  border-bottom-color: var(--mc-border-dark);
+  border-right-color: var(--mc-border-dark);
+  color: var(--mc-gold);
+  font-size: 0.85rem;
+  padding: 7px 10px;
+}
+.season-switch__btn:hover { background: var(--mc-bg-panel-light); }
+.season-switch .dropdown { left: 0; min-width: 160px; }
+
 .version-badge {
   display: inline-flex;
   align-items: center;
@@ -594,6 +608,19 @@ table td.price {
   white-space: nowrap;
 }
 table td.num { text-align: right; white-space: nowrap; }
+
+/* エンチャント図鑑（シーズン2） */
+table td .en {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--mc-text-dim);
+  letter-spacing: 0.04em;
+}
+table td.lv { text-align: center; white-space: nowrap; color: var(--mc-diamond); font-weight: bold; }
+table td.ng { color: #e8938c; font-size: 0.85rem; }
+table td.effect { min-width: 240px; }
+table td.items { font-size: 0.9rem; }
+table td.items .item { white-space: nowrap; margin-right: 8px; }
 
 /* タグ */
 .tags {

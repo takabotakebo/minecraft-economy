@@ -20,7 +20,13 @@
                   host === '' || location.protocol === 'file:');
 
   /* ---- サイト構造定義 ---- */
-  var VERSION = 'v0.3.0';
+  var VERSION = 'v0.4.0';
+  /* シーズン（body data-season で指定。既定はシーズン1） */
+  var SEASON = body.getAttribute('data-season') || '1';
+  var SEASONS = [
+    { id: '1', label: 'シーズン1', emoji: '🌱', href: 'index.html' },
+    { id: '2', label: 'シーズン2', emoji: '✨', href: 's2/index.html' }
+  ];
   // 職業ナビに出さない内部グループ
   var HIDDEN_JOBS = { common: 1 };
   // job.html へ出す職業リスト（prices.json から動的生成）
@@ -28,6 +34,16 @@
   var NAV = [];
 
   function buildNavModel() {
+    if (SEASON === '2') {
+      NAV = [
+        { key: 's2-home',     href: 's2/index.html',    emoji: '🏠', label: 'トップ' },
+        { key: 's2-guild',    href: 's2/guild.html',    emoji: '🛡️', label: 'ギルド' },
+        { key: 's2-prices',   href: 's2/prices.html',   emoji: '🔎', label: '価格表' },
+        { key: 's2-calc',     href: 's2/calc.html',     emoji: '🧮', label: '計算ツール' },
+        { key: 's2-enchants', href: 's2/enchants.html', emoji: '✨', label: 'エンチャント図鑑' }
+      ];
+      return;
+    }
     NAV = [
       { key: 'home',    href: 'index.html',   emoji: '🏠', label: 'ホーム' },
       { key: 'system',  href: 'system.html',  emoji: '🏛️', label: '国のシステム' },
@@ -48,6 +64,25 @@
     if (isCurrent(item.key)) return true;
     if (item.children) return item.children.some(function (c) { return isCurrentJob(c.id); });
     return false;
+  }
+
+  /* ---- シーズン切替（ロゴ右のドロップダウン） ---- */
+  function buildSeasonSwitch() {
+    var cur = SEASONS[0];
+    SEASONS.forEach(function (s) { if (s.id === SEASON) cur = s; });
+    var items = SEASONS.map(function (s) {
+      var active = s.id === SEASON ? ' active' : '';
+      return '<a class="dropdown__item' + active + '" href="' + abs(s.href) + '">' +
+             '<span class="ico">' + s.emoji + '</span>' + s.label + '</a>';
+    }).join('');
+    return '' +
+      '<div class="navitem navitem--has-dropdown season-switch">' +
+        '<a class="navlink season-switch__btn" href="' + abs(cur.href) + '">' +
+          '<span class="ico">' + cur.emoji + '</span>' +
+          '<span class="season-switch__label">' + cur.label + '</span>' +
+          '<span class="caret">▾</span></a>' +
+        '<div class="dropdown">' + items + '</div>' +
+      '</div>';
   }
 
   /* ---- ヘッダー（グローバルナビ＋ドロップダウン） ---- */
@@ -84,6 +119,7 @@
             '<a href="' + abs('index.html') + '" class="site-title">' +
               '<i class="mc mc-lg" style="background-image:url(' + abs('assets/icons/dirt.png') + ')"></i>' +
               '<span class="site-title__text">マイクラ経済ワールド</span></a>' +
+            buildSeasonSwitch() +
           '</div>' +
           '<nav class="globalnav" id="globalnav">' + links + '</nav>' +
           '<div class="header-right">' +
