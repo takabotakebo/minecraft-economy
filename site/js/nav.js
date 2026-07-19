@@ -124,7 +124,8 @@
           '<nav class="globalnav" id="globalnav">' + links + '</nav>' +
           '<div class="header-right">' +
             (IS_LOCAL
-              ? '<a class="gear-link" href="' + abs('admin.html') + '" title="価格データ管理（ローカル専用）" aria-label="価格データ管理">⚙</a>'
+              ? '<a class="gear-link" href="' + abs('admin.html') + (SEASON === '2' ? '?season=2' : '') +
+                '" title="価格データ管理（ローカル専用・シーズン' + SEASON + '）" aria-label="価格データ管理">⚙</a>'
               : '') +
             '<span class="version-badge">' +
               '<i class="mc" style="background-image:url(' + abs('assets/icons/emerald.png') + ')"></i> ' + VERSION +

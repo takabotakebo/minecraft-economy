@@ -1,9 +1,17 @@
 /* ============================================================
-   価格表・検索ページ（prices.html）
+   価格表・検索ページ（prices.html / s2/prices.html）
    prices.json の全価格を一覧表示し、キーワード検索＋職業フィルタ。
+   - body data-depth でサブフォルダの相対パスを補正
+   - body data-prices でデータファイルを差し替え（シーズン2は prices-s2.json）
    ============================================================ */
 (function () {
   'use strict';
+
+  var body = document.body;
+  var P = '../'.repeat(parseInt(body.getAttribute('data-depth') || '0', 10));
+  var DATA_FILE = body.getAttribute('data-prices') || 'data/prices.json';
+  /* 職業詳細ページ(job.html)があるのはシーズン1のみ */
+  var SHOW_JOB_LINK = (body.getAttribute('data-season') || '1') === '1';
 
   var qEl = document.getElementById('pq');
   var jobSel = document.getElementById('pjob');
@@ -21,7 +29,7 @@
   }
   function mc(name) {
     if (!name) return '';
-    return '<i class="mc" style="background-image:url(assets/icons/' + esc(name) + '.png)"></i>';
+    return '<i class="mc" style="background-image:url(' + P + 'assets/icons/' + esc(name) + '.png)"></i>';
   }
   function formatPrice(item) {
     var p = item.price, unit = item.unit || '', note = item.note || '', main;
@@ -32,7 +40,7 @@
     return main;
   }
 
-  fetch('data/prices.json?_=' + Date.now())
+  fetch(P + DATA_FILE + '?_=' + Date.now())
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (data) {
       DATA = data;
@@ -87,7 +95,7 @@
           '<div class="price-job__head">' +
             mc((job.icons && job.icons[0]) || 'emerald') +
             '<span class="price-job__name">' + esc(job.label) + '</span>' +
-            '<a class="price-job__link" href="' + jobLink(job) + '">詳細ページ →</a>' +
+            (SHOW_JOB_LINK ? '<a class="price-job__link" href="' + jobLink(job) + '">詳細ページ →</a>' : '') +
           '</div>' +
           catBlocks.join('') +
         '</section>');
@@ -99,7 +107,7 @@
   }
 
   function jobLink(job) {
-    return 'job.html?id=' + encodeURIComponent(job.id);
+    return P + 'job.html?id=' + encodeURIComponent(job.id);
   }
 
   function categoryTable(job, cat, items) {

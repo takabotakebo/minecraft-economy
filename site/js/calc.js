@@ -9,6 +9,11 @@
 (function () {
   'use strict';
 
+  /* depth とデータファイルの差し替え（シーズン2は data-prices="data/prices-s2.json"） */
+  var body = document.body;
+  var P = '../'.repeat(parseInt(body.getAttribute('data-depth') || '0', 10));
+  var DATA_FILE = body.getAttribute('data-prices') || 'data/prices.json';
+
   var el = {
     source: document.getElementById('calcSource'),
     govMode: document.getElementById('calcGovMode'),
@@ -47,14 +52,14 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
   }
-  function mc(name) { return name ? '<i class="mc" style="background-image:url(assets/icons/' + esc(name) + '.png)"></i>' : ''; }
+  function mc(name) { return name ? '<i class="mc" style="background-image:url(' + P + 'assets/icons/' + esc(name) + '.png)"></i>' : ''; }
   function priceText(n) { return n + CURRENCY; }
 
   function jobs() { return (DATA.jobs || []).filter(function (j) { return j.id !== 'common'; }); }
   function findJob(id) { return DATA.jobs.find(function (j) { return j.id === id; }); }
   function gov() { return findJob('government'); }
 
-  fetch('data/prices.json?_=' + Date.now())
+  fetch(P + DATA_FILE + '?_=' + Date.now())
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (data) {
       DATA = data;
@@ -239,7 +244,18 @@
       isRange: !!u.range
     };
   }
+  /* 禁止・非売品アイテムはカートに入れられない */
+  function isBlocked(item) {
+    return item && /禁止|非売品|購入不可/.test(item.note || '');
+  }
   function updatePreview() {
+    var it = curItem();
+    if (isBlocked(it)) {
+      el.preview.innerHTML = '<strong style="color:var(--mc-redstone);">🚫 ' + esc(it.note) + '：購入できません</strong>';
+      el.add.disabled = true;
+      return;
+    }
+    el.add.disabled = false;
     var e = buildNormalEntry();
     if (!e) { el.preview.innerHTML = ''; return; }
     if (e.isFree) { el.preview.innerHTML = '<strong>無料</strong>' + (e.qty > 1 ? ' × ' + e.qty : ''); return; }
@@ -249,6 +265,7 @@
     el.preview.innerHTML = s;
   }
   function addNormalToCart() {
+    if (isBlocked(curItem())) return;
     var e = buildNormalEntry();
     if (!e) return;
     cart.push(e); renderCart();

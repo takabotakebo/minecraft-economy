@@ -9,9 +9,12 @@
 (function () {
   'use strict';
 
-  var DATA_PATH = 'data/prices.json';
+  /* シーズン切替: admin.html?season=2 でシーズン2の価格(prices-s2.json)を編集 */
+  var IS_S2 = /[?&]season=2(&|$)/.test(location.search);
+  var DATA_FILE = IS_S2 ? 'prices-s2.json' : 'prices.json';
+  var DATA_PATH = 'data/' + DATA_FILE;
   var ICONS_PATH = 'data/icons.json';
-  var SAVE_API = 'api/save-prices';
+  var SAVE_API = 'api/save-prices' + (IS_S2 ? '?file=prices-s2.json' : '');
 
   var els = {
     root: document.getElementById('jobsRoot'),
@@ -45,11 +48,28 @@
 
   if (!IS_LOCAL) els.prodWarning.style.display = '';
   updateHint();
+  markSeason();
+
+  /* どのシーズンのデータを編集中かをヘッダーに明示する */
+  function markSeason() {
+    var label = IS_S2 ? 'シーズン2' : 'シーズン1';
+    document.title = '価格データ管理【' + label + '】｜マイクラ経済ワールド';
+    var h1 = document.querySelector('.hero--page h1');
+    if (h1) h1.insertAdjacentHTML('beforeend',
+      ' <span style="font-size:0.7em;color:var(--mc-gold);">【' + label + '｜' + DATA_FILE + '】</span>');
+    var lead = document.querySelector('.hero--page p code');
+    if (lead) lead.textContent = 'data/' + DATA_FILE;
+    var other = IS_S2 ? 'admin.html' : 'admin.html?season=2';
+    var otherLabel = IS_S2 ? 'シーズン1の価格を編集 →' : 'シーズン2の価格を編集 →';
+    var hero = document.querySelector('.hero--page');
+    if (hero) hero.insertAdjacentHTML('beforeend',
+      '<p style="margin-top:8px;"><a class="changelog-link" href="' + other + '">' + otherLabel + '</a></p>');
+  }
 
   function updateHint() {
-    if (serverSaveAvailable) els.hint.innerHTML = '✅ ローカル編集サーバー経由です。「保存」で <code>data/prices.json</code> に直接上書きされます。';
-    else if (HAS_FS) els.hint.innerHTML = '「保存」でファイル保存ダイアログから <code>data/prices.json</code> を選んで上書きしてください。';
-    else els.hint.innerHTML = '「ダウンロード保存」で <code>prices.json</code> を保存し <code>site/data/</code> に上書きしてください。';
+    if (serverSaveAvailable) els.hint.innerHTML = '✅ ローカル編集サーバー経由です。「保存」で <code>data/' + DATA_FILE + '</code> に直接上書きされます。';
+    else if (HAS_FS) els.hint.innerHTML = '「保存」でファイル保存ダイアログから <code>data/' + DATA_FILE + '</code> を選んで上書きしてください。';
+    else els.hint.innerHTML = '「ダウンロード保存」で <code>' + DATA_FILE + '</code> を保存し <code>site/data/</code> に上書きしてください。';
   }
   function setStatus(m, k) { els.status.textContent = m; els.status.className = 'admin-status' + (k ? ' ' + k : ''); }
   function markDirty() { dirty = true; setStatus('未保存の変更があります', 'dirty'); }
@@ -553,12 +573,12 @@
     if (serverSaveAvailable) {
       try {
         var res = await fetch(SAVE_API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: serialize() });
-        if (res.ok) { dirty = false; clearChanged(); setStatus('保存しました ✓ data/prices.json を更新（' + new Date().toLocaleTimeString() + '）', 'ok'); return; }
+        if (res.ok) { dirty = false; clearChanged(); setStatus('保存しました ✓ data/' + DATA_FILE + ' を更新（' + new Date().toLocaleTimeString() + '）', 'ok'); return; }
       } catch (e) { serverSaveAvailable = false; updateHint(); }
     }
     if (HAS_FS) {
       try {
-        if (!fileHandle) fileHandle = await window.showSaveFilePicker({ suggestedName: 'prices.json', types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }] });
+        if (!fileHandle) fileHandle = await window.showSaveFilePicker({ suggestedName: DATA_FILE, types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }] });
         var w = await fileHandle.createWritable(); await w.write(serialize()); await w.close();
         dirty = false; clearChanged(); setStatus('保存しました ✓（' + new Date().toLocaleTimeString() + '）', 'ok'); return;
       } catch (err) { if (err && err.name === 'AbortError') { setStatus('保存をキャンセル'); return; } }
@@ -571,8 +591,8 @@
     if (!data) return;
     var blob = new Blob([serialize()], { type: 'application/json' });
     var url = URL.createObjectURL(blob), a = document.createElement('a');
-    a.href = url; a.download = 'prices.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    setStatus('prices.json をダウンロードしました。site/data/ に上書きしてください', 'ok');
+    a.href = url; a.download = DATA_FILE; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    setStatus(DATA_FILE + ' をダウンロードしました。site/data/ に上書きしてください', 'ok');
   }
   window.addEventListener('beforeunload', function (e) { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
 })();

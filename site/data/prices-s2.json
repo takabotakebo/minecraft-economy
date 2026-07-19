@@ -1,0 +1,2063 @@
+{
+  "meta": {
+    "version": "v0.3.0",
+    "currency": "エメラルド",
+    "currencyIcon": "emerald",
+    "diamondToEmerald": 10,
+    "schema": 2,
+    "note": "シーズン2用の価格マスター（シーズン1の prices.json を初期値としてコピー）。price は数値のみ（計算ツール用）。単位は unit、範囲や補足は note に持つ。構造は 職業(jobs) → カテゴリ(categories) → 項目(items)。 2026-07-19 初期価格改定: 政府×1.5・その他職業(共通含む)×2。",
+    "season": 2
+  },
+  "jobs": [
+    {
+      "id": "government",
+      "label": "政府",
+      "emoji": "🏛️",
+      "categories": [
+        {
+          "id": "basic_goods",
+          "title": "政府提供・基本物資価格",
+          "columns": [
+            "品目",
+            "数量",
+            "価格"
+          ],
+          "items": [
+            {
+              "price": 0,
+              "name": "原木",
+              "qty": "1スタック",
+              "icon": "oak_log"
+            },
+            {
+              "price": 0,
+              "name": "石",
+              "icon": "cobblestone",
+              "qty": "1スタック"
+            },
+            {
+              "price": 0,
+              "name": "砂",
+              "qty": "1スタック",
+              "icon": "sand"
+            },
+            {
+              "icon": "baked_potato",
+              "name": "ベイクドポテト",
+              "qty": "1スタック",
+              "price": 0
+            },
+            {
+              "price": 0,
+              "name": "石炭・木炭",
+              "qty": "1スタック",
+              "icon": "charcoal"
+            },
+            {
+              "icon": "redstone_torch",
+              "name": "松明",
+              "qty": "1スタック",
+              "price": 0
+            },
+            {
+              "icon": "crafting_table",
+              "name": "作業台",
+              "qty": "1個",
+              "price": 0
+            },
+            {
+              "icon": "furnace",
+              "name": "かまど",
+              "qty": "1個",
+              "price": 0
+            },
+            {
+              "icon": "chest",
+              "name": "チェスト",
+              "qty": "2個",
+              "price": 0
+            },
+            {
+              "icon": "bed",
+              "name": "ベッド",
+              "qty": "1個",
+              "price": 0
+            },
+            {
+              "icon": "birch_boat",
+              "name": "ボート",
+              "qty": "1個",
+              "price": 0
+            },
+            {
+              "icon": "bucket",
+              "name": "バケツ",
+              "qty": "1個",
+              "price": 0
+            },
+            {
+              "icon": "shears",
+              "name": "ハサミ",
+              "qty": "1個",
+              "price": 0
+            },
+            {
+              "icon": "bone_meal",
+              "name": "骨粉",
+              "qty": "16個",
+              "price": 1
+            },
+            {
+              "icon": "bone_meal",
+              "name": "骨粉",
+              "qty": "1スタック",
+              "price": 3
+            },
+            {
+              "price": 0,
+              "name": "鉄",
+              "qty": "1スタック",
+              "icon": "iron_ingot"
+            }
+          ]
+        },
+        {
+          "id": "basic_equipment",
+          "title": "政府基本装備価格",
+          "columns": [
+            "装備",
+            "価格"
+          ],
+          "items": [
+            {
+              "icon": "stone_pickaxe",
+              "name": "石のツルハシ",
+              "price": 0
+            },
+            {
+              "icon": "stone_axe",
+              "name": "石の斧",
+              "price": 0
+            },
+            {
+              "icon": "stone_shovel",
+              "name": "石のシャベル",
+              "price": 0
+            },
+            {
+              "icon": "stone_sword",
+              "name": "石の剣",
+              "price": 0
+            },
+            {
+              "icon": "iron_pickaxe",
+              "name": "鉄のツルハシ",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_axe",
+              "name": "鉄の斧",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_shovel",
+              "name": "鉄のシャベル",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_sword",
+              "name": "鉄の剣",
+              "price": 1.5
+            },
+            {
+              "icon": "shield",
+              "name": "盾",
+              "price": 1.5
+            },
+            {
+              "icon": "bow",
+              "name": "弓",
+              "price": 1.5
+            },
+            {
+              "icon": "arrow",
+              "name": "矢64本",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_helmet",
+              "name": "鉄ヘルメット",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_chestplate",
+              "name": "鉄チェストプレート",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_leggings",
+              "name": "鉄レギンス",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_boots",
+              "name": "鉄ブーツ",
+              "price": 1.5
+            },
+            {
+              "icon": "iron_chestplate",
+              "name": "鉄防具一式",
+              "price": 1.5
+            }
+          ]
+        },
+        {
+          "id": "diamond_base",
+          "title": "ダイヤ装備の本体価格",
+          "columns": [
+            "アイテム",
+            "必要ダイヤ",
+            "本体価格"
+          ],
+          "items": [
+            {
+              "icon": "diamond_shovel",
+              "name": "ダイヤのシャベル",
+              "qty": "1個",
+              "price": 15
+            },
+            {
+              "icon": "diamond_sword",
+              "name": "ダイヤの剣",
+              "qty": "2個",
+              "price": 30
+            },
+            {
+              "icon": "diamond_axe",
+              "name": "ダイヤの斧",
+              "qty": "3個",
+              "price": 45
+            },
+            {
+              "icon": "diamond_pickaxe",
+              "name": "ダイヤのツルハシ",
+              "qty": "3個",
+              "price": 45
+            },
+            {
+              "icon": "diamond_hoe",
+              "name": "ダイヤのクワ",
+              "qty": "2個",
+              "price": 30
+            },
+            {
+              "icon": "diamond_helmet",
+              "name": "ダイヤヘルメット",
+              "qty": "5個",
+              "price": 75
+            },
+            {
+              "icon": "diamond_chestplate",
+              "name": "ダイヤチェストプレート",
+              "qty": "8個",
+              "price": 120
+            },
+            {
+              "icon": "diamond_leggings",
+              "name": "ダイヤレギンス",
+              "qty": "7個",
+              "price": 105
+            },
+            {
+              "icon": "diamond_boots",
+              "name": "ダイヤブーツ",
+              "qty": "4個",
+              "price": 60
+            },
+            {
+              "icon": "diamond_chestplate",
+              "name": "ダイヤ防具一式",
+              "qty": "24個",
+              "price": 360
+            }
+          ],
+          "note": "ダイヤ1個 = 10エメラルドで計算。"
+        },
+        {
+          "id": "enchant_fee",
+          "title": "エンチャント追加料金",
+          "columns": [
+            "エンチャント",
+            "区分",
+            "追加料金"
+          ],
+          "items": [
+            {
+              "icon": "enchanted_book",
+              "name": "修繕",
+              "tier": "生活系",
+              "price": 0,
+              "note": "+(ダイヤ装備代+15)",
+              "add": 15,
+              "calcType": "base_plus"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "幸運3",
+              "tier": "高級",
+              "price": 30
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "効率強化5",
+              "tier": "高級",
+              "price": 30
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "耐久力3",
+              "tier": "高級",
+              "price": 30
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ダメージ増加5",
+              "tier": "高級",
+              "price": 30
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "射撃ダメージ増加5",
+              "tier": "高級",
+              "price": 30
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ダメージ軽減4",
+              "tier": "高級",
+              "price": 21
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "アンデッド特効5",
+              "tier": "高級",
+              "price": 30
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "シルクタッチ",
+              "tier": "中級",
+              "price": 21
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "落下耐性4",
+              "tier": "中級",
+              "price": 21
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ドロップ増加3",
+              "tier": "中級",
+              "price": 15
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "火属性2",
+              "tier": "通常",
+              "price": 15
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "水中呼吸",
+              "tier": "通常",
+              "price": 15
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "水中採掘",
+              "tier": "通常",
+              "price": 15
+            }
+          ]
+        },
+        {
+          "id": "new_enchant_fee",
+          "title": "新エンチャント価格（More Enchants）",
+          "columns": [
+            "エンチャント",
+            "区分",
+            "価格"
+          ],
+          "items": [
+            {
+              "icon": "enchanted_book",
+              "name": "ヴェインマイナー",
+              "tier": "採掘・ツール",
+              "price": 100
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "鉱石錬金（オレアルケミー）",
+              "tier": "採掘・ツール",
+              "price": 300
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "精錬",
+              "tier": "採掘・ツール",
+              "price": 300
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "鉱夫の幸運",
+              "tier": "採掘・ツール",
+              "price": 0,
+              "note": "禁止"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "スポナーシルク",
+              "tier": "採掘・ツール",
+              "price": 100
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "モメンタム",
+              "tier": "採掘・ツール",
+              "price": 200
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "知恵",
+              "tier": "採掘・ツール",
+              "price": 100
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "考古学者",
+              "tier": "採掘・ツール",
+              "price": 0,
+              "note": "禁止"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "木こり",
+              "tier": "採掘・ツール",
+              "price": 200
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "葉刈り",
+              "tier": "採掘・ツール",
+              "price": 200
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "幸運な庭師",
+              "tier": "採掘・ツール",
+              "price": 250
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "クイックラーナー",
+              "tier": "武器",
+              "price": 100
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "アースクエイク",
+              "tier": "武器（メイス）",
+              "price": 50
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ジャベリン＋リターン",
+              "tier": "槍",
+              "price": 100
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "メテオインパクト",
+              "tier": "遠距離",
+              "price": 0,
+              "note": "禁止"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "フッキング",
+              "tier": "遠距離（釣竿）",
+              "price": 100
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ファイアボールフリント",
+              "tier": "遠距離",
+              "price": 0,
+              "note": "禁止"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "グローイングオーラ",
+              "tier": "防具",
+              "price": 200
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ピストンイジェクト",
+              "tier": "盾",
+              "price": 150
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "バーンオーラ",
+              "tier": "盾",
+              "price": 400
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "フローズンタッチ",
+              "tier": "盾",
+              "price": 400
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "リフレクティブガード",
+              "tier": "盾",
+              "price": 150
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "マグネティズム",
+              "tier": "防具",
+              "price": 300
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "アンフィビアン",
+              "tier": "防具",
+              "price": 500
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "バイタリティ LV1",
+              "tier": "防具",
+              "price": 300
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "バイタリティ LV2",
+              "tier": "防具",
+              "price": 400
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "バイタリティ LV3",
+              "tier": "防具",
+              "price": 600
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "バイタリティ LV4",
+              "tier": "防具",
+              "price": 800
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "バイタリティ LV5",
+              "tier": "防具",
+              "price": 1000
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ラストスタンド",
+              "tier": "防具",
+              "price": 200
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ウィザーソーンズ",
+              "tier": "防具",
+              "price": 150
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "スティッキーパンツ",
+              "tier": "防具",
+              "price": 300
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ダブルジャンプ LV1",
+              "tier": "防具",
+              "price": 1000
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ダブルジャンプ LV2",
+              "tier": "防具",
+              "price": 1200
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ダブルジャンプ LV3",
+              "tier": "防具",
+              "price": 1500
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "スライムジャンプ",
+              "tier": "防具",
+              "price": 800
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "リフトオフ",
+              "tier": "エリトラ",
+              "price": 1000
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "リーサルエッジ",
+              "tier": "エリトラ",
+              "price": 800
+            }
+          ]
+        },
+        {
+          "id": "unique_skill",
+          "title": "ユニークスキル（非売品）",
+          "columns": [
+            "エンチャント",
+            "区分",
+            "価格"
+          ],
+          "items": [
+            {
+              "icon": "enchanted_book",
+              "name": "エンドスレイヤー",
+              "tier": "武器",
+              "price": 10000,
+              "note": "非売品"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ソニックウェーブ",
+              "tier": "武器",
+              "price": 10000,
+              "note": "非売品"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "コロッサス",
+              "tier": "武器",
+              "price": 10000,
+              "note": "コロシアムイベント特典（非売品）"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ライフリーパー",
+              "tier": "武器",
+              "price": 10000,
+              "note": "非売品"
+            },
+            {
+              "icon": "enchanted_book",
+              "name": "ロングショット",
+              "tier": "遠距離",
+              "price": 10000,
+              "note": "非売品"
+            }
+          ]
+        },
+        {
+          "id": "diamond_examples",
+          "title": "完成品価格の計算例",
+          "columns": [
+            "完成品",
+            "計算",
+            "価格"
+          ],
+          "items": [
+            {
+              "name": "ダイヤのツルハシ本体",
+              "calc": "本体30",
+              "price": 45
+            },
+            {
+              "name": "修繕つきダイヤのツルハシ",
+              "calc": "本体30 + (ダイヤ装備代30+10)",
+              "price": 105
+            },
+            {
+              "name": "効率5・耐久3・修繕つきダイヤのツルハシ",
+              "calc": "20 + 20 + 本体30 + (ダイヤ装備代30+10)",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "id": "repair",
+          "title": "修繕・修理の価格",
+          "columns": [
+            "内容",
+            "価格"
+          ],
+          "items": [
+            {
+              "icon": "anvil",
+              "name": "通常修繕",
+              "price": 4.5,
+              "unit": "/1装備",
+              "note": "修繕エンチャント付き装備のみ"
+            },
+            {
+              "icon": "anvil",
+              "name": "緊急・出張修繕",
+              "price": 15,
+              "note": "神が来ます(神不在時は不可)"
+            }
+          ]
+        },
+        {
+          "id": "supply_quest",
+          "title": "政府への緊急納品クエスト価格(時価)",
+          "columns": [
+            "納品物",
+            "数量",
+            "報酬"
+          ],
+          "items": [
+            {
+              "icon": "oak_log",
+              "name": "原木(オーク)",
+              "qty": "4スタック",
+              "price": 10.5,
+              "note": "1スタックの場合は1.5"
+            },
+            {
+              "icon": "cobblestone",
+              "name": "丸石",
+              "qty": "2スタック",
+              "price": 1.5
+            },
+            {
+              "icon": "stone",
+              "name": "石",
+              "qty": "2スタック",
+              "price": 3
+            },
+            {
+              "icon": "sand",
+              "name": "砂",
+              "qty": "1スタック",
+              "price": 1.5
+            },
+            {
+              "icon": "dirt",
+              "name": "土",
+              "qty": "1スタック",
+              "price": 0
+            },
+            {
+              "icon": "coal",
+              "name": "石炭",
+              "qty": "1スタック",
+              "price": 7.5,
+              "note": "枯渇時10.5"
+            },
+            {
+              "icon": "charcoal",
+              "name": "木炭",
+              "qty": "1スタック",
+              "price": 7.5
+            },
+            {
+              "icon": "iron_ingot",
+              "name": "鉄",
+              "qty": "1スタック",
+              "price": 15
+            },
+            {
+              "icon": "redstone",
+              "name": "レッドストーン",
+              "qty": "1スタック",
+              "price": 3,
+              "note": "(材料屋へ移動検討) "
+            },
+            {
+              "icon": "bone",
+              "name": "骨",
+              "qty": "32個",
+              "price": 1.5,
+              "note": "(材料屋へ移動検討) "
+            },
+            {
+              "icon": "gunpowder",
+              "name": "火薬",
+              "qty": "32個",
+              "price": 1.5,
+              "note": "(材料屋へ移動検討) "
+            },
+            {
+              "icon": "rotten_flesh",
+              "name": "腐った肉",
+              "qty": "64個",
+              "price": 1.5,
+              "note": "(材料屋へ移動検討) "
+            }
+          ],
+          "note": "常設買取ではなく、必要な時にクエストとして募集します。素材系は1時間ほどの作業で8〜12エメラルド程度になるよう調整。在庫が十分なときは買取を停止し、報酬は必要度・危険度・不足状況に応じて一時的に上げる場合があります。"
+        },
+        {
+          "id": "device_fee",
+          "title": "装置買取料",
+          "columns": [
+            "装置",
+            "利用料"
+          ],
+          "items": [
+            {
+              "name": "小型装置",
+              "price": 45,
+              "unit": "1つ",
+              "note": "(検討中)(装置技師へ移動)"
+            },
+            {
+              "name": "中型装置",
+              "price": 75,
+              "unit": "1つ",
+              "note": "(検討中)(装置技師へ移動)"
+            },
+            {
+              "name": "大型装置",
+              "price": 105,
+              "unit": "1つ",
+              "note": "(検討中)(装置技師へ移動)"
+            },
+            {
+              "icon": "enchanting_table",
+              "name": "経験値施設",
+              "price": 45,
+              "unit": "1つ",
+              "note": "(検討中)(装置技師へ移動)"
+            },
+            {
+              "icon": "iron_ingot",
+              "name": "アイアントラップ",
+              "price": 45,
+              "unit": "1つ",
+              "note": "(検討中)(装置技師へ移動)"
+            },
+            {
+              "icon": "gold_ingot",
+              "name": "金トラップ",
+              "price": 45,
+              "unit": "1つ",
+              "note": "(検討中)(装置技師へ移動)"
+            }
+          ]
+        },
+        {
+          "id": "device_ticket",
+          "title": "装置利用チケット",
+          "columns": [
+            "チケット",
+            "価格"
+          ],
+          "items": [
+            {
+              "name": "装置利用券",
+              "price": 15,
+              "note": "(検討中)ただし、その際の政府の買い取り額は上限アリ",
+              "unit": "/10分"
+            }
+          ]
+        },
+        {
+          "id": "tax",
+          "title": "税金",
+          "columns": [
+            "税金",
+            "金額"
+          ],
+          "items": [
+            {
+              "name": "住民税",
+              "price": 7.5,
+              "unit": "/ログイン日"
+            }
+          ]
+        },
+        {
+          "id": "land",
+          "title": "土地代",
+          "columns": [
+            "区画",
+            "価格"
+          ],
+          "items": [
+            {
+              "name": "小区画",
+              "price": 15,
+              "note": "(現状は無料)",
+              "icon": "dirt"
+            },
+            {
+              "name": "中区画",
+              "price": 30,
+              "note": "(現状は無料)",
+              "icon": "dirt"
+            },
+            {
+              "name": "大区画",
+              "price": 60,
+              "note": "(現状は無料)",
+              "icon": "dirt"
+            },
+            {
+              "name": "店舗区画",
+              "price": 45,
+              "note": "(現状は無料)",
+              "icon": "acacia_sign"
+            }
+          ]
+        },
+        {
+          "id": "honor",
+          "title": "名誉系サービス",
+          "columns": [
+            "内容",
+            "価格"
+          ],
+          "items": [
+            {
+              "name": "叙勲",
+              "price": 0,
+              "note": "時価(報酬をもらう)",
+              "icon": "paper"
+            },
+            {
+              "name": "銅像・記念碑建設権",
+              "price": 300,
+              "icon": "paper"
+            },
+            {
+              "name": "村の通りの命名権",
+              "price": 150,
+              "icon": "paper"
+            }
+          ]
+        },
+        {
+          "id": "event",
+          "title": "イベント参加費",
+          "columns": [
+            "イベント",
+            "参加費"
+          ],
+          "items": [
+            {
+              "icon": "diamond_sword",
+              "name": "闘技場イベント",
+              "price": 1.5,
+              "note": "(未定)"
+            },
+            {
+              "icon": "chest",
+              "name": "アスレチック",
+              "price": 1.5,
+              "note": "(未定)"
+            },
+            {
+              "icon": "egg",
+              "name": "CRコケコッコー",
+              "price": 1.5,
+              "note": "(未定)"
+            }
+          ]
+        },
+        {
+          "id": "insurance",
+          "title": "装備保険",
+          "columns": [
+            "対象",
+            "価格"
+          ],
+          "items": [
+            {
+              "icon": "diamond_pickaxe",
+              "name": "ダイヤ装備(エンチャント込み)",
+              "price": 15,
+              "unit": "/1装備",
+              "note": "政府購入時に限る"
+            }
+          ]
+        }
+      ],
+      "desc": "ワールド全体の管理と経済調整を担当します。",
+      "icons": [
+        "emerald_block",
+        "emerald",
+        "redstone"
+      ],
+      "role": {
+        "sections": [
+          {
+            "heading": "主な仕事・サービス",
+            "type": "list",
+            "items": [
+              {
+                "text": "通貨管理 / 税金回収 / 国庫管理 / 公共物管理"
+              },
+              {
+                "text": "クエスト発行 / 公共事業の発注"
+              },
+              {
+                "text": "エンチャント・ダイヤ装備・道具の販売"
+              },
+              {
+                "text": "装置の買い取りと管理 / 価格調整 / インフレ・デフレ調整"
+              },
+              {
+                "text": "ルール違反への対応 / プレイヤーの面倒な部分の削減"
+              }
+            ]
+          },
+          {
+            "heading": "政府クエストの仕組み",
+            "type": "list",
+            "items": [
+              {
+                "text": "公共物の補充や村の整備のため、必要な時に必要な分だけ依頼を発行"
+              },
+              {
+                "text": "プレイヤーの仕事を作るための制度（常設買取ではない）"
+              },
+              {
+                "text": "依頼には 内容 / 成果物 / 報酬 / 納期 / 担当者 / 納品場所 を明記"
+              }
+            ]
+          },
+          {
+            "heading": "装置の扱い（政府登録制）",
+            "type": "list",
+            "items": [
+              {
+                "text": "自由に作ってよい：自動ドア・照明・隠し扉・小規模倉庫仕分け など"
+              },
+              {
+                "text": "登録が必要：自動かまど・自動農場・自動経験値装置・大型仕分け倉庫 など"
+              },
+              {
+                "text": "政府買取（個人所有禁止）：各種トラップ・大量の骨粉生成装置 など"
+              },
+              {
+                "text": "政府管理の装置は利用料／チケットで利用可。持ち帰り上限あり（余剰は国庫へ）"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "common",
+      "label": "共通",
+      "emoji": "📋",
+      "categories": [
+        {
+          "id": "labor_guide",
+          "title": "相場設計の基準（1時間あたりの収入目安）",
+          "columns": [
+            "種類",
+            "1時間あたりの収入目安"
+          ],
+          "items": [
+            {
+              "name": "基本素材集め",
+              "price": 20
+            },
+            {
+              "name": "農業・畜産",
+              "price": 20
+            },
+            {
+              "name": "危険探索",
+              "price": 20
+            },
+            {
+              "name": "建築",
+              "price": 20
+            },
+            {
+              "name": "装置制作",
+              "price": 20
+            },
+            {
+              "name": "調教師",
+              "price": 20
+            }
+          ]
+        }
+      ],
+      "desc": "職業共通で参考にする相場の基準です。",
+      "icons": [
+        "clock",
+        "emerald"
+      ]
+    },
+    {
+      "id": "material",
+      "label": "材料屋",
+      "emoji": "🧱",
+      "categories": [
+        {
+          "id": "job_material",
+          "title": "材料屋の相場",
+          "columns": [
+            "商品",
+            "数量",
+            "相場"
+          ],
+          "items": [
+            {
+              "icon": "glass",
+              "name": "色付きガラス",
+              "qty": "1スタック",
+              "price": 4
+            },
+            {
+              "price": 8,
+              "name": "原木(通常各種)",
+              "qty": "1スタック",
+              "icon": "birch_log"
+            },
+            {
+              "name": "原木(ペールオーク)",
+              "price": 12,
+              "qty": "1スタック",
+              "icon": "pale_oak_log"
+            },
+            {
+              "price": 32,
+              "name": "クォーツブロック",
+              "qty": "1スタック",
+              "icon": "quartz_block"
+            },
+            {
+              "price": 8,
+              "name": "革",
+              "qty": "16個",
+              "icon": "leather"
+            },
+            {
+              "icon": "white_wool",
+              "name": "色付き羊毛",
+              "qty": "1スタック",
+              "price": 8
+            },
+            {
+              "icon": "white_concrete",
+              "name": "コンクリート",
+              "qty": "1スタック",
+              "price": 16
+            },
+            {
+              "icon": "white_terracotta",
+              "name": "テラコッタ",
+              "qty": "1スタック",
+              "price": 8
+            },
+            {
+              "icon": "bricks",
+              "name": "レンガ",
+              "qty": "1スタック",
+              "price": 16
+            },
+            {
+              "icon": "clay",
+              "name": "粘土",
+              "qty": "1スタック",
+              "price": 4
+            },
+            {
+              "icon": "sandstone",
+              "name": "染料",
+              "qty": "8個",
+              "price": 4,
+              "note": "色によって要相談"
+            },
+            {
+              "icon": "tuff",
+              "name": "凝灰岩",
+              "qty": "1スタック",
+              "price": 4
+            },
+            {
+              "icon": "calcite",
+              "name": "方解石",
+              "qty": "1スタック",
+              "price": 6
+            },
+            {
+              "icon": "copper_block",
+              "name": "銅ブロック",
+              "qty": "1スタック",
+              "price": 10
+            },
+            {
+              "icon": "end_stone",
+              "name": "エンド素材",
+              "qty": "1スタック",
+              "price": 16
+            }
+          ],
+          "note": "価格は自由だが、運用開始時の目安（1時間で8〜12エメラルド程度になるよう安めに設定）。"
+        }
+      ],
+      "desc": "政府が常備しない資材や、こだわり建築に必要な素材を扱う職業です。特殊な建材、大量の装飾素材などを販売・納品します。",
+      "icons": [
+        "bricks",
+        "white_concrete",
+        "copper_block"
+      ],
+      "role": {
+        "sections": [
+          {
+            "heading": "主な取り扱い",
+            "type": "tags",
+            "items": [
+              {
+                "icon": "glass",
+                "text": "色付きガラス"
+              },
+              {
+                "icon": "white_wool",
+                "text": "色付き羊毛"
+              },
+              {
+                "icon": "white_concrete",
+                "text": "コンクリート"
+              },
+              {
+                "icon": "white_terracotta",
+                "text": "テラコッタ"
+              },
+              {
+                "icon": "bricks",
+                "text": "レンガ"
+              },
+              {
+                "icon": "clay",
+                "text": "粘土"
+              },
+              {
+                "icon": "sandstone",
+                "text": "砂岩"
+              },
+              {
+                "icon": "tuff",
+                "text": "凝灰岩"
+              },
+              {
+                "icon": "calcite",
+                "text": "方解石"
+              },
+              {
+                "icon": "copper_block",
+                "text": "銅ブロック"
+              }
+            ]
+          },
+          {
+            "heading": "主な仕事・サービス",
+            "type": "list",
+            "items": [
+              {
+                "text": "在庫販売 / 予約販売 / 大量注文 / 配達"
+              },
+              {
+                "text": "加工込み販売 / 建築家向けの卸売"
+              },
+              {
+                "text": "冒険家から仕入れた特殊素材の再販売"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "farmer",
+      "label": "農家",
+      "emoji": "🍞",
+      "categories": [
+        {
+          "id": "job_farmer",
+          "title": "農家の相場",
+          "columns": [
+            "商品",
+            "数量",
+            "相場"
+          ],
+          "items": [
+            {
+              "icon": "bread",
+              "name": "パン",
+              "qty": "1スタック",
+              "price": 4,
+              "note": "一般販売"
+            },
+            {
+              "icon": "potato",
+              "name": "ジャガイモ",
+              "qty": "1スタック",
+              "price": 2,
+              "note": "政府買取"
+            },
+            {
+              "icon": "carrot",
+              "name": "ニンジン",
+              "qty": "1スタック",
+              "price": 2,
+              "note": "一般販売"
+            },
+            {
+              "icon": "cooked_beef",
+              "name": "焼き肉",
+              "qty": "1スタック",
+              "price": 6,
+              "note": "一般販売"
+            },
+            {
+              "icon": "leather",
+              "name": "革",
+              "qty": "16個",
+              "price": 4,
+              "note": "材料屋へ販売"
+            },
+            {
+              "icon": "white_wool",
+              "name": "羊毛",
+              "qty": "1スタック",
+              "price": 4,
+              "note": "材料屋へ販売"
+            },
+            {
+              "icon": "paper",
+              "name": "紙",
+              "qty": "1スタック",
+              "price": 2,
+              "note": "政府買取"
+            },
+            {
+              "icon": "sugar_cane",
+              "name": "サトウキビ",
+              "qty": "1スタック",
+              "price": 2,
+              "note": "政府買取"
+            },
+            {
+              "icon": "bamboo",
+              "name": "竹",
+              "qty": "1スタック",
+              "price": 2,
+              "note": "政府買取"
+            },
+            {
+              "icon": "cocoa_beans",
+              "name": "カカオ豆",
+              "qty": "1スタック",
+              "price": 4,
+              "note": "一般販売"
+            },
+            {
+              "icon": "honey_bottle",
+              "name": "蜂蜜",
+              "qty": "16個",
+              "price": 6,
+              "note": "一般販売"
+            }
+          ]
+        }
+      ],
+      "desc": "食料・畜産・植物系素材を扱う職業です。政府から骨粉を購入し、生産に使うことができます。",
+      "icons": [
+        "wheat",
+        "bread",
+        "cooked_beef"
+      ],
+      "role": {
+        "sections": [
+          {
+            "heading": "主な取り扱い",
+            "type": "tags",
+            "items": [
+              {
+                "icon": "wheat",
+                "text": "小麦"
+              },
+              {
+                "icon": "bread",
+                "text": "パン"
+              },
+              {
+                "icon": "potato",
+                "text": "ジャガイモ"
+              },
+              {
+                "icon": "carrot",
+                "text": "ニンジン"
+              },
+              {
+                "icon": "cooked_beef",
+                "text": "焼き肉"
+              },
+              {
+                "icon": "leather",
+                "text": "革"
+              },
+              {
+                "icon": "white_wool",
+                "text": "羊毛"
+              },
+              {
+                "icon": "egg",
+                "text": "卵"
+              },
+              {
+                "icon": "milk_bucket",
+                "text": "牛乳"
+              },
+              {
+                "icon": "sugar_cane",
+                "text": "サトウキビ"
+              },
+              {
+                "icon": "paper",
+                "text": "紙"
+              },
+              {
+                "icon": "honey_bottle",
+                "text": "蜂蜜"
+              },
+              {
+                "icon": "bamboo",
+                "text": "竹"
+              },
+              {
+                "icon": "cocoa_beans",
+                "text": "カカオ豆"
+              }
+            ]
+          },
+          {
+            "heading": "主な仕事・サービス",
+            "type": "list",
+            "items": [
+              {
+                "text": "高品質な食料・大量食料・冒険用食料セットの販売"
+              },
+              {
+                "text": "苗木の増殖 / 骨粉を使った植物生産品"
+              },
+              {
+                "text": "染料用の花・植物素材の供給"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "adventurer",
+      "label": "冒険家",
+      "emoji": "🔥",
+      "categories": [
+        {
+          "id": "job_adventurer",
+          "title": "冒険家の相場",
+          "columns": [
+            "商品・サービス",
+            "数量",
+            "相場"
+          ],
+          "items": [
+            {
+              "icon": "blaze_rod",
+              "name": "ブレイズロッド",
+              "qty": "16本",
+              "price": 0,
+              "note": "販売ナシ"
+            },
+            {
+              "icon": "quartz",
+              "name": "クォーツ",
+              "qty": "4スタック",
+              "price": 16
+            },
+            {
+              "icon": "glowstone",
+              "name": "グロウストーン",
+              "qty": "10個",
+              "price": 10
+            },
+            {
+              "icon": "soul_sand",
+              "name": "ソウルサンド",
+              "qty": "1スタック",
+              "price": 4
+            },
+            {
+              "name": "ネザー探索同行",
+              "qty": "1回",
+              "price": 40,
+              "unit": "1時間",
+              "note": "攻略もする場合はプラス費用"
+            },
+            {
+              "name": "洞窟探索同行",
+              "qty": "1回",
+              "price": 30,
+              "note": "攻略もする場合はプラス費用",
+              "unit": "1時間"
+            },
+            {
+              "name": "迷子救助",
+              "qty": "1回",
+              "price": 10,
+              "note": "1000マスごとに10(追加要望につき+10)",
+              "unit": "距離に応じて"
+            },
+            {
+              "name": "死亡地点の荷物回収",
+              "qty": "1回",
+              "price": 60,
+              "note": "物理的に行ける距離のみ(失敗の場合も20)"
+            },
+            {
+              "name": "その他依頼",
+              "price": 60,
+              "qty": "1回",
+              "note": "内容で要相談"
+            }
+          ]
+        },
+        {
+          "id": "equipment",
+          "title": "冒険家商店",
+          "columns": [
+            "品目",
+            "数量",
+            "価格"
+          ],
+          "items": [
+            {
+              "price": 40,
+              "name": "ダイヤのツルハシ",
+              "qty": "1",
+              "icon": "diamond_pickaxe"
+            },
+            {
+              "price": 20,
+              "name": "ダイヤのスコップ",
+              "qty": "1",
+              "icon": "diamond_shovel"
+            },
+            {
+              "price": 20,
+              "name": "ダイヤの剣",
+              "qty": "1",
+              "icon": "diamond_sword"
+            },
+            {
+              "price": 40,
+              "name": "ダイヤの斧",
+              "qty": "1",
+              "icon": "diamond_axe"
+            },
+            {
+              "price": 20,
+              "name": "ダイヤのクワ",
+              "qty": "1",
+              "icon": "diamond_hoe"
+            },
+            {
+              "price": 100,
+              "name": "ダイヤのチェストプレート",
+              "qty": "1",
+              "icon": "diamond_chestplate"
+            },
+            {
+              "price": 100,
+              "name": "ダイヤのレギンス",
+              "qty": "1",
+              "icon": "diamond_leggings"
+            },
+            {
+              "price": 70,
+              "name": "ダイヤのブーツ",
+              "qty": "1",
+              "icon": "diamond_boots"
+            },
+            {
+              "price": 70,
+              "name": "ダイヤの頭",
+              "qty": "1",
+              "icon": "diamond_helmet"
+            },
+            {
+              "price": 120,
+              "name": "エンダーチェスト",
+              "qty": "1",
+              "icon": "ender_chest"
+            }
+          ]
+        }
+      ],
+      "desc": "危険地帯の探索・レア素材回収・討伐・護衛を行う職業です。仕入れた素材は自分で販売しても、材料屋に卸して再販売してもらっても構いません。",
+      "icons": [
+        "diamond_sword",
+        "nether_wart",
+        "ancient_debris"
+      ],
+      "role": {
+        "sections": [
+          {
+            "heading": "主な取り扱い",
+            "type": "tags",
+            "items": [
+              {
+                "icon": "nether_wart",
+                "text": "ネザーウォート"
+              },
+              {
+                "icon": "blaze_rod",
+                "text": "ブレイズロッド"
+              },
+              {
+                "icon": "quartz",
+                "text": "クォーツ"
+              },
+              {
+                "icon": "glowstone",
+                "text": "グロウストーン"
+              },
+              {
+                "icon": "ancient_debris",
+                "text": "古代の残骸"
+              },
+              {
+                "icon": "blackstone",
+                "text": "ブラックストーン"
+              },
+              {
+                "icon": "basalt",
+                "text": "玄武岩"
+              },
+              {
+                "icon": "soul_sand",
+                "text": "ソウルサンド"
+              },
+              {
+                "icon": "iron_ingot",
+                "text": "鉄"
+              },
+              {
+                "icon": "copper_block",
+                "text": "銅"
+              },
+              {
+                "icon": "redstone",
+                "text": "レッドストーン"
+              },
+              {
+                "icon": "lapis_lazuli",
+                "text": "ラピスラズリ"
+              },
+              {
+                "icon": "diamond",
+                "text": "ダイヤ"
+              }
+            ]
+          },
+          {
+            "heading": "主な仕事・サービス",
+            "type": "list",
+            "items": [
+              {
+                "text": "構造物探索 / 海底神殿 / 森の洋館 / 古代都市"
+              },
+              {
+                "text": "襲撃対応 / 迷子救助 / 危険地帯の護衛 / レアアイテム回収"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "builder",
+      "label": "建築家",
+      "emoji": "🏠",
+      "categories": [
+        {
+          "id": "job_builder",
+          "title": "建築家の相場",
+          "columns": [
+            "仕事",
+            "相場"
+          ],
+          "items": [
+            {
+              "name": "小規模住宅",
+              "price": 200,
+              "note": "材料費込み(建築家利益100想定)"
+            },
+            {
+              "name": "中規模住宅",
+              "price": 300,
+              "note": "材料費込み(建築家利益140想定)"
+            },
+            {
+              "name": "大規模住宅",
+              "price": 500,
+              "note": "材料費込み(建築家利益200想定)"
+            },
+            {
+              "name": "内装のみ",
+              "price": 40,
+              "note": "材料費別"
+            },
+            {
+              "name": "道路整備",
+              "price": 20,
+              "note": "材料費別",
+              "unit": "１チャンク"
+            },
+            {
+              "name": "公共施設(小規模住宅)",
+              "price": 100,
+              "note": "範囲 100〜300"
+            },
+            {
+              "name": "公共施設(中規模住宅)",
+              "price": 160,
+              "note": "範囲 20〜80"
+            },
+            {
+              "name": "公共施設(大規模住宅)",
+              "price": 300,
+              "note": "範囲 6〜20"
+            },
+            {
+              "name": "区画整理",
+              "price": 10,
+              "note": "整地屋へ移動",
+              "unit": "１チャンク"
+            }
+          ],
+          "note": "材料費は別料金か材料込み価格かを依頼時に決める。"
+        }
+      ],
+      "desc": "住宅・店舗・公共施設・道路・橋・内装などを作る職業です。",
+      "icons": [
+        "oak_planks",
+        "bricks",
+        "crafting_table"
+      ],
+      "role": {
+        "sections": [
+          {
+            "heading": "主な仕事・サービス",
+            "type": "list",
+            "items": [
+              {
+                "text": "個人宅 / 店舗 / 公共施設の建築"
+              },
+              {
+                "text": "道路整備 / 橋の建設 / 倉庫建築 / 内装 / 区画整理 / 街並み整備"
+              },
+              {
+                "text": "建築相談 / 設計図作成"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "engineer",
+      "label": "装置技師",
+      "emoji": "⚙️",
+      "categories": [
+        {
+          "id": "job_engineer",
+          "title": "装置技師の相場",
+          "columns": [
+            "装置",
+            "報酬相場"
+          ],
+          "items": [
+            {
+              "icon": "redstone",
+              "name": "小型装置",
+              "price": 60,
+              "note": "政府買取"
+            },
+            {
+              "icon": "hopper",
+              "name": "中型装置",
+              "price": 100,
+              "note": "政府買取"
+            },
+            {
+              "icon": "chest",
+              "name": "大型仕分け倉庫",
+              "price": 140,
+              "note": "政府買取"
+            },
+            {
+              "icon": "iron_ingot",
+              "name": "アイアントラップ",
+              "price": 60,
+              "note": "使用して政府に材料を販売する際は上限22.5エメラルド"
+            },
+            {
+              "icon": "gold_ingot",
+              "name": "金トラップ",
+              "price": 60,
+              "note": "政府買取"
+            }
+          ],
+          "note": "材料に政府公共物を使う場合、報酬は設計料・施工料・保守料として支払う。"
+        }
+      ],
+      "desc": "レッドストーン装置・自動装置・公共設備を作る職業です。",
+      "icons": [
+        "redstone",
+        "hopper",
+        "piston"
+      ],
+      "role": {
+        "sections": [
+          {
+            "heading": "主な取り扱い",
+            "type": "tags",
+            "items": [
+              {
+                "icon": "furnace",
+                "text": "自動かまど"
+              },
+              {
+                "icon": "hopper",
+                "text": "仕分け倉庫"
+              },
+              {
+                "icon": "wheat",
+                "text": "自動農場"
+              },
+              {
+                "icon": "enchanting_table",
+                "text": "公共経験値施設"
+              },
+              {
+                "icon": "piston",
+                "text": "隠し扉"
+              },
+              {
+                "icon": "redstone_lamp",
+                "text": "照明装置"
+              }
+            ]
+          },
+          {
+            "heading": "主な仕事・サービス",
+            "type": "list",
+            "items": [
+              {
+                "text": "装置の制作（自動かまど・仕分け倉庫・自動農場 など）"
+              },
+              {
+                "text": "装置の修理 / 改修 / 保守"
+              },
+              {
+                "text": "大型装置は政府が買い取り、公共設備として管理"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tamer",
+      "label": "調教師",
+      "emoji": "🐺",
+      "categories": [
+        {
+          "id": "job_tamer",
+          "title": "調教師の相場",
+          "columns": [
+            "商品・サービス",
+            "内容",
+            "相場"
+          ],
+          "items": [
+            {
+              "icon": "wolf_spawn_egg",
+              "name": "犬",
+              "detail": "通常の飼い犬",
+              "price": 6,
+              "note": "範囲 6〜10"
+            },
+            {
+              "icon": "wolf_spawn_egg",
+              "name": "護衛犬",
+              "detail": "冒険・拠点警備用",
+              "price": 10,
+              "note": "範囲 10〜20"
+            },
+            {
+              "icon": "wolf_spawn_egg",
+              "name": "護衛犬セット",
+              "detail": "犬3匹セット",
+              "price": 24,
+              "note": "範囲 24〜50"
+            },
+            {
+              "icon": "cat_spawn_egg",
+              "name": "猫",
+              "detail": "通常の飼い猫",
+              "price": 8,
+              "note": "範囲 8〜16"
+            },
+            {
+              "icon": "cat_spawn_egg",
+              "name": "猫の種類指定",
+              "detail": "柄指定あり",
+              "price": 16,
+              "note": "範囲 16〜30"
+            },
+            {
+              "icon": "horse_spawn_egg",
+              "name": "馬",
+              "detail": "通常馬",
+              "price": 16,
+              "note": "範囲 16〜30"
+            },
+            {
+              "icon": "horse_spawn_egg",
+              "name": "高性能馬",
+              "detail": "速い・ジャンプ力あり",
+              "price": 40,
+              "note": "範囲 40〜100"
+            },
+            {
+              "icon": "saddle",
+              "name": "ロバ",
+              "detail": "荷物運搬用",
+              "price": 16,
+              "note": "範囲 16〜36"
+            },
+            {
+              "icon": "saddle",
+              "name": "ラバ",
+              "detail": "荷物運搬用",
+              "price": 20,
+              "note": "範囲 20〜40"
+            },
+            {
+              "name": "馬の性能確認",
+              "detail": "1頭",
+              "price": 4
+            },
+            {
+              "name": "馬の繁殖依頼",
+              "detail": "1回",
+              "price": 6,
+              "note": "範囲 6〜12"
+            },
+            {
+              "icon": "name_tag",
+              "name": "ペット名付け代行",
+              "detail": "名札代別",
+              "price": 2,
+              "note": "範囲 2〜4"
+            },
+            {
+              "name": "ペット配達",
+              "detail": "1回",
+              "price": 4,
+              "note": "範囲 4〜10"
+            },
+            {
+              "name": "ペット捜索",
+              "detail": "1回",
+              "price": 6,
+              "note": "範囲 6〜20"
+            },
+            {
+              "name": "ペット保険",
+              "detail": "1匹",
+              "price": 6,
+              "note": "範囲 6〜16"
+            },
+            {
+              "name": "馬小屋管理",
+              "detail": "週",
+              "price": 6,
+              "note": "範囲 6〜12"
+            }
+          ]
+        }
+      ],
+      "desc": "ペット・護衛動物・移動用動物を整備する職業です。犬・猫・馬などを捕まえ、育成・名付け・引き渡し・繁殖・護衛用の整備を行います。",
+      "icons": [
+        "wolf_spawn_egg",
+        "cat_spawn_egg",
+        "horse_spawn_egg"
+      ],
+      "role": {
+        "sections": [
+          {
+            "heading": "主な取り扱い",
+            "type": "tags",
+            "items": [
+              {
+                "icon": "wolf_spawn_egg",
+                "text": "犬"
+              },
+              {
+                "icon": "cat_spawn_egg",
+                "text": "猫"
+              },
+              {
+                "icon": "horse_spawn_egg",
+                "text": "馬"
+              },
+              {
+                "icon": "saddle",
+                "text": "ロバ・ラバ"
+              }
+            ]
+          },
+          {
+            "heading": "主な仕事・サービス",
+            "type": "list",
+            "items": [
+              {
+                "text": "犬・猫・馬の捕獲 / 育成 / 繁殖 / 販売"
+              },
+              {
+                "text": "ペットの名付け / 配達 / 捜索 / 保険"
+              },
+              {
+                "text": "冒険家向けの護衛犬セット作成 / 馬小屋の管理"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

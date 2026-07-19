@@ -7,8 +7,9 @@
 <meta name="description" content="追加アドオン More Enchants 3.0（Raiyon's More Enchantments）の全エンチャント日本語訳図鑑">
 <link rel="icon" href="../assets/icons/enchanted_book.png">
 <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/s2-theme.css">
 </head>
-<body data-page="s2-enchants" data-depth="1" data-season="2">
+<body data-page="s2-enchants" data-depth="1" data-season="2" data-prices="data/prices-s2.json">
 <div id="app">
 
   <section class="hero hero--page">
@@ -48,6 +49,20 @@
         <li><strong>エンチャント済みのアイテムでテーブルを叩く</strong> → エンチャントを1つ、または全部はずせる</li>
       </ol>
       <p style="color:var(--mc-text-dim);font-size:0.85rem;">※ 手順は CurseForge の公式説明（英語）より。選択画面には各エンチャントに対応するアイテムのアイコンが表示されます。</p>
+      <div class="media-grid">
+        <figure>
+          <img src="../assets/season2/gallery/howto-recipe.png" alt="ディープスレート・エンチャントテーブルのクラフトレシピ" loading="lazy">
+          <figcaption>テーブルのクラフトレシピ（本＋アメジスト＋ディープスレート）</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/season2/gallery/howto-ui.png" alt="エンチャント選択画面" loading="lazy">
+          <figcaption>本で叩くと開くエンチャント選択画面</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/season2/gallery/howto-combine.png" alt="エンチャントの合成ルール" loading="lazy">
+          <figcaption>同レベルの本を合成すると1段階アップ（II＋II＝III）</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -59,6 +74,7 @@
         <li><strong>レベル</strong>：「I–III」なら最大3段階まで強化可能。「—」はレベルなし（1段階のみ）</li>
         <li><strong>対応アイテム</strong>：そのエンチャントを付けられるアイテム</li>
         <li><strong>競合</strong>：同じアイテムに<strong>同時に付けられない</strong>エンチャント（バニラのエンチャント名は日本語版表記）</li>
+        <li><strong>価格</strong>：政府での購入価格（エメラルド）。<strong>禁止</strong>＝このワールドでは使用禁止、<strong>非売品</strong>＝ユニークスキル（イベント特典など）、<strong>未定</strong>＝価格未設定。最新の価格は<a class="changelog-link" href="prices.html">価格表</a>が正です</li>
       </ul>
     </div>
   </section>
@@ -67,6 +83,7 @@
   <section class="section" id="cat-tools">
     <div class="section__head"><span class="num">⛏️</span><h2><span class="ico">⛏️</span>採掘・ツール系（11種）</h2></div>
     <div class="section__body">
+      <img class="cat-banner" src="../assets/season2/gallery/banner-tools.png" alt="Tools Enchantments" loading="lazy">
       <div class="table-wrap">
         <table>
           <thead><tr><th>エンチャント</th><th>レベル</th><th>効果</th><th>対応アイテム</th><th>競合</th></tr></thead>
@@ -173,6 +190,7 @@
   <section class="section" id="cat-melee">
     <div class="section__head"><span class="num">⚔️</span><h2><span class="ico">⚔️</span>近接武器系（7種）</h2></div>
     <div class="section__body">
+      <img class="cat-banner" src="../assets/season2/gallery/banner-weapon.png" alt="Weapon Enchantments" loading="lazy">
       <div class="table-wrap">
         <table>
           <thead><tr><th>エンチャント</th><th>レベル</th><th>効果</th><th>対応アイテム</th><th>競合</th></tr></thead>
@@ -296,6 +314,7 @@
   <section class="section" id="cat-ranged">
     <div class="section__head"><span class="num">🏹</span><h2><span class="ico">🏹</span>遠距離武器系（6種）</h2></div>
     <div class="section__body">
+      <img class="cat-banner" src="../assets/season2/gallery/banner-ranged.png" alt="Ranged Enchantments" loading="lazy">
       <div class="table-wrap">
         <table>
           <thead><tr><th>エンチャント</th><th>レベル</th><th>効果</th><th>対応アイテム</th><th>競合</th></tr></thead>
@@ -358,6 +377,7 @@
   <section class="section" id="cat-shield">
     <div class="section__head"><span class="num">🛡️</span><h2><span class="ico">🛡️</span>盾系（4種）</h2></div>
     <div class="section__body">
+      <img class="cat-banner" src="../assets/season2/gallery/banner-shield.png" alt="Shield Enchantments" loading="lazy">
       <div class="table-wrap">
         <table>
           <thead><tr><th>エンチャント</th><th>レベル</th><th>効果</th><th>対応アイテム</th><th>競合</th></tr></thead>
@@ -400,6 +420,7 @@
   <section class="section" id="cat-armor">
     <div class="section__head"><span class="num">🥾</span><h2><span class="ico">🛡️</span>防具系（9種）</h2></div>
     <div class="section__body">
+      <img class="cat-banner" src="../assets/season2/gallery/banner-armor.png" alt="Armor Enchantments" loading="lazy">
       <div class="table-wrap">
         <table>
           <thead><tr><th>エンチャント</th><th>レベル</th><th>効果</th><th>対応アイテム</th><th>競合</th></tr></thead>
@@ -483,6 +504,7 @@
   <section class="section" id="cat-elytra">
     <div class="section__head"><span class="num">🪽</span><h2><span class="ico">🪽</span>エリトラ系（2種）</h2></div>
     <div class="section__body">
+      <img class="cat-banner" src="../assets/season2/gallery/banner-elytra.png" alt="Elytra Enchantments" loading="lazy">
       <div class="table-wrap">
         <table>
           <thead><tr><th>エンチャント</th><th>レベル</th><th>効果</th><th>対応アイテム</th><th>競合</th></tr></thead>
@@ -567,6 +589,53 @@
     </div>
   </section>
 
+  <!-- ギャラリー -->
+  <section class="section" id="gallery">
+    <div class="section__head"><span class="num">🎬</span><h2><span class="ico">🎬</span>公式デモギャラリー</h2></div>
+    <div class="section__body">
+      <p>CurseForge の配布ページに掲載されている公式のデモGIF・画像です。</p>
+      <div class="callout callout--info">
+        <span class="callout-ico">ℹ️</span>
+        <div>一部は<strong>旧バージョンのエンチャント</strong>（Iron Wings・Smelting など）のデモです。現行 v3.0 の効果・名前は上の図鑑を正としてください。</div>
+      </div>
+      <h4>エンチャントのエンブレム</h4>
+      <div class="emblem-grid">
+        <img src="../assets/season2/gallery/emblem-01.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-02.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-03.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-04.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-05.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-06.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-07.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-08.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-09.png" alt="エンブレム" loading="lazy">
+        <img src="../assets/season2/gallery/emblem-10.png" alt="エンブレム" loading="lazy">
+      </div>
+      <h4>デモGIF</h4>
+      <div class="media-grid">
+        <figure><img src="../assets/season2/gallery/demo-soulfire.gif" alt="青い炎の剣" loading="lazy"><figcaption>青い炎をまとった剣（ソウルファイア）</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-smelting.gif" alt="精錬" loading="lazy"><figcaption>掘ったその場で製錬（精錬／旧 Smelting II）</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-mining.gif" alt="採掘デモ" loading="lazy"><figcaption>採掘で経験値がこぼれる</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-mining2.gif" alt="採掘デモ" loading="lazy"><figcaption>洞窟での採掘デモ</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-lavawalk.gif" alt="溶岩の上を歩く" loading="lazy"><figcaption>溶岩上に道を作って歩く（旧バージョン）</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-carry1.gif" alt="モブ運びデモ" loading="lazy"><figcaption>モブを連れて歩くデモ</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-carry2.gif" alt="モブ運びデモ" loading="lazy"><figcaption>モブを連れて歩くデモ 2</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-bow1.gif" alt="弓デモ" loading="lazy"><figcaption>弓エンチャントのデモ</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-bow2.gif" alt="弓デモ" loading="lazy"><figcaption>弓エンチャントのデモ 2</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-crossbow.gif" alt="クロスボウデモ" loading="lazy"><figcaption>クロスボウエンチャントのデモ</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-mob1.gif" alt="戦闘デモ" loading="lazy"><figcaption>夜の戦闘デモ</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-mob2.gif" alt="戦闘デモ" loading="lazy"><figcaption>夜の戦闘デモ 2</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-mob3.gif" alt="戦闘デモ" loading="lazy"><figcaption>スケルトンとの戦闘デモ</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-field.gif" alt="フィールドデモ" loading="lazy"><figcaption>夜のフィールドデモ</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-book1.gif" alt="エンチャント本" loading="lazy"><figcaption>台座のエンチャント本（旧 Iron Wings）</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-book2.gif" alt="エンチャント本" loading="lazy"><figcaption>台座のエンチャント本 2</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-book3.gif" alt="エンチャント本" loading="lazy"><figcaption>台座のエンチャント本 3</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/demo-book4.gif" alt="エンチャント本" loading="lazy"><figcaption>ネザライト剣とエンチャント本</figcaption></figure>
+        <figure><img src="../assets/season2/gallery/shot-book.png" alt="エンチャント本の展示" loading="lazy"><figcaption>台座に飾られたエンチャント本（旧 Iron Wings）</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <!-- 出典 -->
   <section class="section" id="credit">
     <div class="section__head"><span class="num">🔗</span><h2><span class="ico">🔗</span>出典・クレジット</h2></div>
@@ -574,7 +643,7 @@
       <ul>
         <li>翻訳元：アドオン「More Enchants 3.0」ゲーム内ガイドブック（英語・全62ページ）のエンチャント解説ページ（11〜60）</li>
         <li>アドオン：<a class="changelog-link" href="https://www.curseforge.com/minecraft-bedrock/addons/raiyon-s-more-enchantments-addon">Raiyon's More Enchantments Addon</a>（作者：lordraiyon69 氏）</li>
-        <li>ロゴ画像は CurseForge の配布ページより。アドオンとその画像の著作権は作者に帰属します（本サイトは非商用・限定公開のファン制作です）</li>
+        <li>ロゴ・バナー・デモGIF・エンブレム等の画像は CurseForge の配布ページより。アドオンとその画像の著作権は作者（lordraiyon69 氏）に帰属します（本サイトは非商用・限定公開のファン制作です）</li>
       </ul>
     </div>
   </section>
@@ -582,5 +651,6 @@
 </div>
 <script src="../js/nav.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/ench-prices.js"></script>
 </body>
 </html>

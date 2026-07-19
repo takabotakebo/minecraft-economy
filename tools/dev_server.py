@@ -37,20 +37,28 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404, "Not Found")
             return
         try:
+            # ?file= で保存先を切替（シーズン2は prices-s2.json）。ホワイトリスト外は拒否
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            fname = qs.get("file", ["prices.json"])[0]
+            if fname not in ("prices.json", "prices-s2.json"):
+                self.send_error(400, f"Invalid target file: {fname}")
+                return
+            target = os.path.join(ROOT, "data", fname)
             length = int(self.headers.get("Content-Length", 0))
             raw = self.rfile.read(length)
             # JSONとして妥当か検証してから保存（壊れたデータで上書きしない）
             parsed = json.loads(raw.decode("utf-8"))
             text = json.dumps(parsed, ensure_ascii=False, indent=2) + "\n"
-            with open(PRICES_PATH, "w", encoding="utf-8") as f:
+            with open(target, "w", encoding="utf-8") as f:
                 f.write(text)
-            body = json.dumps({"ok": True, "path": "data/prices.json"}).encode("utf-8")
+            body = json.dumps({"ok": True, "path": f"data/{fname}"}).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
-            print(f"[save] data/prices.json を上書きしました（{len(text)} bytes）")
+            print(f"[save] data/{fname} を上書きしました（{len(text)} bytes）")
         except json.JSONDecodeError as e:
             self.send_error(400, f"Invalid JSON: {e}")
         except Exception as e:
