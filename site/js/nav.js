@@ -20,7 +20,7 @@
                   host === '' || location.protocol === 'file:');
 
   /* ---- サイト構造定義 ---- */
-  var VERSION = 'v0.4.0';
+  var VERSION = 'v0.4.1';
   /* シーズン（body data-season で指定。既定はシーズン1） */
   var SEASON = body.getAttribute('data-season') || '1';
   var SEASONS = [
